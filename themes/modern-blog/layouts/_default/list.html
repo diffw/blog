@@ -11,31 +11,21 @@
   <div class="posts-list">
     {{ range .Paginator.Pages }}
     <article class="post-card">
-      <div class="post-meta">
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-        {{ if .Params.categories }}
-        <span class="categories">
-          {{ range .Params.categories }}
-          <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" class="category-tag">{{ . }}</a>
+      <div class="post-card-header">
+        <h2 class="post-title">
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </h2>
+        <div class="post-meta-right">
+          {{ if .Params.tags }}
+          <div class="post-tags">
+            {{ range .Params.tags }}
+            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">#{{ . }}</a>
+            {{ end }}
+          </div>
           {{ end }}
-        </span>
-        {{ end }}
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        </div>
       </div>
-      <h2 class="post-title">
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-      </h2>
-      {{ if .Description }}
-      <p class="post-excerpt">{{ .Description }}</p>
-      {{ else }}
-      <p class="post-excerpt">{{ .Summary | truncate 150 }}</p>
-      {{ end }}
-      {{ if .Params.tags }}
-      <div class="post-tags">
-        {{ range .Params.tags }}
-        <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">#{{ . }}</a>
-        {{ end }}
-      </div>
-      {{ end }}
     </article>
     {{ end }}
   </div>

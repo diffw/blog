@@ -15,7 +15,7 @@ relativeURLs = false
 [params]
   # ⚠️ Please update with your name
   author = "NanWang.Art"
-  description = "Personal sharing and life records"
+  description = ""
   keywords = "design,life,personal blog"
   darkMode = true
   searchEnabled = true
