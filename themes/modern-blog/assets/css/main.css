@@ -277,7 +277,6 @@ a:hover {
 }
 
 .home-page-content p {
-  margin-bottom: 1.5rem;
   line-height: 1.7;
 }
 
@@ -299,6 +298,22 @@ a:hover {
 .home-page-content a:hover {
   color: var(--link-hover);
   text-decoration: underline;
+}
+
+/* Section styles */
+.section {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+}
+
+/* Update section styles */
+.update em {
+  color: var(--text-secondary);
+}
+
+/* Blog section styles */
+.blog .post-card {
+  padding: 0;
 }
 
 .latest-post-preview {
