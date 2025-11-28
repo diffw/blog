@@ -5,10 +5,13 @@
     <article class="post-card">
       <div class="post-content-preview">
         {{ $content := .Content | plainify }}
-        {{ $truncated := $content | truncate 100 }}
-        <p>{{ $truncated }}</p>
-        {{ if gt (len $content) 100 }}
-        <a href="{{ .Permalink }}" class="read-more">Read more...</a>
+        {{ $contentLength := len $content }}
+        {{ if gt $contentLength 1000 }}
+          {{ $truncated := $content | truncate 1000 }}
+          <div class="post-content-full">{{ $truncated }}</div>
+          <a href="{{ .Permalink }}" class="read-more">Read more...</a>
+        {{ else }}
+          <div class="post-content-full">{{ $content }}</div>
         {{ end }}
       </div>
       <div class="post-meta-bottom">
