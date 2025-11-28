@@ -47,7 +47,7 @@ git push > /dev/null 2>&1
 if [ $? -eq 0 ]; then
     echo "✅ 发布成功！"
     echo ""
-    echo "⏱️  等待 1-2 分钟，然后访问: https://blog.nanwang.art"
+    echo "⏱️  等待 1-2 分钟，然后访问: https://nanwang.art"
 else
     echo "❌ 发布失败，请检查错误信息"
     exit 1

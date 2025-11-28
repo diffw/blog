@@ -69,7 +69,7 @@ if [ $? -eq 0 ]; then
     echo "📋 下一步:"
     echo "   1. 等待 1-2 分钟让 GitHub Actions 部署"
     echo "   2. 查看部署状态: https://github.com/diffw/blog/actions"
-    echo "   3. 访问博客: https://blog.nanwang.art"
+    echo "   3. 访问博客: https://nanwang.art"
     echo ""
 else
     echo "❌ 推送失败，请检查 Git 配置"
