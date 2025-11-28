@@ -332,9 +332,20 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+}
+
+/* Tags in post content (single page) */
+.post-content + .post-tags {
   margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--border-color);
+}
+
+/* Tags in post list */
+.post-card-header .post-tags {
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 
 .tag {
