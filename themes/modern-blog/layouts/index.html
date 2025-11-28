@@ -3,9 +3,6 @@
 <div class="home-page-content">
   {{/* 获取 now.md 页面 */}}
   {{ $nowPage := .Site.GetPage "page" "now" }}
-  {{ if not $nowPage }}
-    {{ $nowPage = .Site.GetPage "page" "now.md" }}
-  {{ end }}
   {{ $nowFirstModule := "" }}
   {{ if $nowPage }}
     {{ $nowContent := $nowPage.RawContent }}
@@ -18,9 +15,11 @@
       {{/* 如果没有第三个 ---，取第二个 --- 之后的所有内容 */}}
       {{ $nowFirstModule = index $parts 1 }}
     {{ end }}
-    {{/* 清理前后空白并渲染为 Markdown */}}
+    {{/* 清理前后空白 */}}
     {{ if $nowFirstModule }}
-      {{ $nowFirstModule = $nowFirstModule | strings.TrimSpace | .RenderString }}
+      {{ $nowFirstModule = $nowFirstModule | strings.TrimSpace }}
+      {{/* 渲染为 Markdown */}}
+      {{ $nowFirstModule = $nowFirstModule | .RenderString }}
     {{ end }}
   {{ end }}
   
