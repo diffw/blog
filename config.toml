@@ -2,7 +2,7 @@
 # ⚠️ Please replace yourdomain.com with your actual domain
 baseURL = 'https://blog.nanwang.art/'
 languageCode = 'en-us'
-title = 'Say something'
+title = 'Nan Wang'
 theme = 'modern-blog'
 enableRobotsTXT = true
 enableGitInfo = false
