@@ -1,4 +1,9 @@
 {{ define "main" }}
+{{ if .Content }}
+<div class="home-page-content">
+  {{ .Content }}
+</div>
+{{ else }}
 <div class="home-page">
   <div class="posts-list">
     {{ range first 10 .Site.RegularPages }}
@@ -34,5 +39,6 @@
   </div>
   {{ end }}
 </div>
+{{ end }}
 {{ end }}
 

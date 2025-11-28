@@ -251,6 +251,46 @@ a:hover {
   color: var(--text-secondary);
 }
 
+.home-page-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.home-page-content h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.home-page-content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.home-page-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.home-page-content li {
+  margin-bottom: 0.5rem;
+}
+
+.home-page-content a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.home-page-content a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
 .page-title {
   font-size: 2rem;
   font-weight: 700;
