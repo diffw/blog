@@ -9,7 +9,9 @@ A Christian, a designer, the husband of one woman, and the father of three child
 </div>
 <div class="now">
 <h2>What am I doing now? <a href="https://nanwang.art/now/">more</a></h2>
+<div class="update">
 /读取 now.md 第一个模块的内容
+</div>
 </div>
 <div class="blog">
 <h2>My blog<a href="https://nanwang.art/posts/">more</a></h2>
