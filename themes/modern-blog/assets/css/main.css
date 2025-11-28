@@ -467,6 +467,35 @@ a:hover {
   border-bottom: none;
 }
 
+/* Page-specific styles */
+.page-single .post-header {
+  margin-bottom: 0;
+}
+
+.page-single .post-meta {
+  display: none;
+}
+
+.page-single .post-footer {
+  display: none;
+}
+
+.page-title {
+  font-size: 1rem !important;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.page-back-link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.page-back-link:hover {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
 .post-content {
   font-size: 1.1rem;
   line-height: 1.8;

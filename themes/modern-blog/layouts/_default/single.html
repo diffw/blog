@@ -1,4 +1,34 @@
 {{ define "main" }}
+{{ if eq .Section "" }}
+{{/* Page template - for pages not in posts section */}}
+<article class="post-single page-single">
+  <header class="post-header">
+    <h1 class="post-title page-title"><a href="/" class="page-back-link">Back</a></h1>
+    <div class="post-meta">
+      {{ if .Params.categories }}
+      <span class="categories">
+        {{ range .Params.categories }}
+        <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" class="category-tag">{{ . }}</a>
+        {{ end }}
+      </span>
+      {{ end }}
+    </div>
+  </header>
+  
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+  
+  {{ if .Params.tags }}
+  <div class="post-tags">
+    {{ range .Params.tags }}
+    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">#{{ . }}</a>
+    {{ end }}
+  </div>
+  {{ end }}
+</article>
+{{ else }}
+{{/* Post template - for posts in posts section */}}
 <article class="post-single">
   <header class="post-header">
     <h1 class="post-title">{{ .Title }}</h1>
@@ -43,5 +73,6 @@
     </div>
   </footer>
 </article>
+{{ end }}
 {{ end }}
 
