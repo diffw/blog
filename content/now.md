@@ -9,7 +9,7 @@ description: ""
 
 Building a chrome extension with Cursor.
 
-Last update: Nov 28, 2025
+*Last update: Nov 28, 2025*
 
 ---
 

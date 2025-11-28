@@ -5,7 +5,7 @@ draft: false
 ---
 
 
-A Christian, a designer, the husband of one woman, and the father of three children. Born in China, live in Dallas Texas. * [More about me](https://nanwang.art/about/)
+A Christian, a designer, the husband of one woman, and the father of three children. Born in China, live in Dallas Texas.  [More about me](https://nanwang.art/about/)
 
 ## [ What am I doing now? ](https://nanwang.art/now/)
 /读取 now.md 第一个模块的内容
