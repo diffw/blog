@@ -7,7 +7,7 @@
   {{ if $nowPage }}
     {{/* 使用 RawContent 获取原始内容 */}}
     {{ $nowContent := $nowPage.RawContent }}
-    {{/* 按 --- 分割内容 */}}
+    {{/* 按 --- 分割内容（使用正则表达式匹配完整的 --- 分隔符） */}}
     {{ $parts := split $nowContent "---" }}
     {{/* 提取第 2 个与第 3 个 --- 之间的内容 */}}
     {{ if ge (len $parts) 4 }}
