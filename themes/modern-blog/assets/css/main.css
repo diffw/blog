@@ -94,6 +94,11 @@ a:hover {
   color: var(--text-color);
 }
 
+.page-header-title {
+  font-size: 1rem !important;
+  font-weight: 400;
+}
+
 .site-nav {
   display: flex;
   gap: 2rem;
