@@ -19,6 +19,10 @@
     {{ end }}
     {{/* 清理前后空白 */}}
     {{ $nowFirstModule = $nowFirstModule | strings.TrimSpace }}
+    {{/* 将 now.md 内容渲染为 Markdown */}}
+    {{ if $nowFirstModule }}
+      {{ $nowFirstModule = $nowFirstModule | .RenderString }}
+    {{ end }}
   {{ end }}
   
   {{/* 获取最新的一篇博客 */}}
