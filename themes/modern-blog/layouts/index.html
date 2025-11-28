@@ -11,16 +11,12 @@
     {{/* 提取第 2 个与第 3 个 --- 之间的内容（索引 2，因为 split 会得到多个部分） */}}
     {{ if ge (len $parts) 3 }}
       {{ $nowFirstModule = index $parts 2 }}
-      {{/* 清理前后空白 */}}
+      {{/* 清理前后空白，但保留内部换行 */}}
       {{ $nowFirstModule = $nowFirstModule | strings.TrimSpace }}
-      {{/* 渲染为 Markdown */}}
+      {{/* 渲染为 Markdown，保留换行 */}}
       {{ if and $nowFirstModule (ne $nowFirstModule "") }}
         {{ $nowFirstModule = $nowFirstModule | .RenderString }}
       {{ end }}
-    {{ end }}
-    {{/* 如果 nowFirstModule 为空，使用默认内容 */}}
-    {{ if not $nowFirstModule }}
-      {{ $nowFirstModule = "<p>Building a chrome extension with Cursor.</p>" }}
     {{ end }}
   {{ end }}
   
