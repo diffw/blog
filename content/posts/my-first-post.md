@@ -7,8 +7,6 @@ tags: ["blog", "getting started"]
 description: "This is my first blog post, documenting the blog creation process."
 ---
 
-# My First Post
-
 Welcome to my personal blog! 🎉
 
 ## About This Blog
