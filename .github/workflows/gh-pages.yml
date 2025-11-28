@@ -1,4 +1,4 @@
-name: GitHub Pages
+name: Deploy Hugo site to Pages
 
 on:
   push:
@@ -35,10 +35,10 @@ jobs:
         id: pages
         uses: actions/configure-pages@v4
       
-      - name: Build
+      - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
-        run: hugo --minify
+        run: hugo --minify --baseURL ${{ steps.pages.outputs.base_url }}/
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
