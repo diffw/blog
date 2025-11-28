@@ -33,21 +33,6 @@
   {{ $style := resources.Get "css/main.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.Permalink }}">
   
-  <!-- Search Index -->
-  {{ if .Site.Params.searchEnabled }}
-    <script>
-      // Load search index from JSON
-      fetch('/index.json')
-        .then(response => response.json())
-        .then(data => {
-          window.searchIndexData = data;
-        })
-        .catch(err => {
-          console.error('Failed to load search index:', err);
-          window.searchIndexData = [];
-        });
-    </script>
-  {{ end }}
 </head>
 <body>
   <div class="container">
@@ -61,11 +46,6 @@
   <!-- Scripts -->
   {{ $main := resources.Get "js/main.js" | minify | fingerprint }}
   <script src="{{ $main.Permalink }}"></script>
-  
-  {{ if .Site.Params.searchEnabled }}
-    {{ $search := resources.Get "js/search.js" | minify | fingerprint }}
-    <script src="{{ $search.Permalink }}"></script>
-  {{ end }}
 </body>
 </html>
 
