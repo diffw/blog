@@ -1,0 +1,18 @@
+<footer class="site-footer">
+  <div class="footer-content">
+    <p>&copy; {{ now.Year }} {{ .Site.Params.author }}. All rights reserved.</p>
+    <div class="footer-links">
+      {{ if .Site.Params.github }}
+      <a href="{{ .Site.Params.github }}" target="_blank" rel="noopener">GitHub</a>
+      {{ end }}
+      {{ if .Site.Params.twitter }}
+      <a href="{{ .Site.Params.twitter }}" target="_blank" rel="noopener">Twitter</a>
+      {{ end }}
+      {{ if .Site.Params.email }}
+      <a href="mailto:{{ .Site.Params.email }}">Email</a>
+      {{ end }}
+      <a href="{{ "/index.xml" | relLangURL }}">RSS</a>
+    </div>
+  </div>
+</footer>
+

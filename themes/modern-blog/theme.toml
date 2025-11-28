@@ -1,0 +1,12 @@
+name = "modern-blog"
+license = "MIT"
+licenselink = "https://github.com/yourusername/modern-blog/blob/main/LICENSE"
+description = "A modern, clean, and responsive Hugo theme with dark mode support"
+tags = ["blog", "minimal", "responsive", "dark-mode"]
+features = ["dark-mode", "search", "rss", "responsive"]
+min_version = "0.100.0"
+
+[author]
+  name = "Your Name"
+  homepage = "https://yourdomain.com"
+

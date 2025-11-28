@@ -1,0 +1,56 @@
+{{ define "main" }}
+<div class="posts-container">
+  <h1 class="page-title">{{ if .IsHome }}最新文章{{ else }}{{ .Title }}{{ end }}</h1>
+  
+  {{ if .Content }}
+  <div class="content">
+    {{ .Content }}
+  </div>
+  {{ end }}
+  
+  <div class="posts-list">
+    {{ range .Paginator.Pages }}
+    <article class="post-card">
+      <div class="post-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
+        {{ if .Params.categories }}
+        <span class="categories">
+          {{ range .Params.categories }}
+          <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" class="category-tag">{{ . }}</a>
+          {{ end }}
+        </span>
+        {{ end }}
+      </div>
+      <h2 class="post-title">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </h2>
+      {{ if .Description }}
+      <p class="post-excerpt">{{ .Description }}</p>
+      {{ else }}
+      <p class="post-excerpt">{{ .Summary | truncate 150 }}</p>
+      {{ end }}
+      {{ if .Params.tags }}
+      <div class="post-tags">
+        {{ range .Params.tags }}
+        <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">#{{ . }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
+    </article>
+    {{ end }}
+  </div>
+  
+  {{ if gt .Paginator.TotalPages 1 }}
+  <nav class="pagination">
+    {{ if .Paginator.HasPrev }}
+    <a href="{{ .Paginator.Prev.URL }}" class="pagination-link prev">← 上一页</a>
+    {{ end }}
+    <span class="pagination-info">第 {{ .Paginator.PageNumber }} 页，共 {{ .Paginator.TotalPages }} 页</span>
+    {{ if .Paginator.HasNext }}
+    <a href="{{ .Paginator.Next.URL }}" class="pagination-link next">下一页 →</a>
+    {{ end }}
+  </nav>
+  {{ end }}
+</div>
+{{ end }}
+

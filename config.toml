@@ -1,0 +1,73 @@
+# 基础配置
+# ⚠️ 请将 yourdomain.com 替换为你的实际域名
+baseURL = 'https://yourdomain.com'
+languageCode = 'zh-cn'
+title = '我的个人博客'
+theme = 'modern-blog'
+enableRobotsTXT = true
+enableGitInfo = false
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  # ⚠️ 请更新为你的名字
+  author = "Your Name"
+  description = "个人分享与生活记录"
+  keywords = "设计,生活,个人博客"
+  darkMode = true
+  searchEnabled = true
+  
+  # 社交媒体
+  github = ""
+  twitter = ""
+  email = ""
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "首页"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "posts"
+    name = "文章"
+    url = "/posts/"
+    weight = 2
+  [[menu.main]]
+    identifier = "categories"
+    name = "分类"
+    url = "/categories/"
+    weight = 3
+  [[menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "/tags/"
+    weight = 4
+  [[menu.main]]
+    identifier = "about"
+    name = "关于"
+    url = "/about/"
+    weight = 5
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "github-dark"
+    lineNos = true
+    lineNumbersInTable = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"
+

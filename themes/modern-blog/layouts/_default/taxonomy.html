@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div class="taxonomy-page">
+  <h1 class="page-title">{{ .Title }}</h1>
+  
+  <div class="taxonomy-list">
+    {{ range .Pages }}
+    <article class="post-card">
+      <div class="post-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
+        {{ if .Params.categories }}
+        <span class="categories">
+          {{ range .Params.categories }}
+          <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" class="category-tag">{{ . }}</a>
+          {{ end }}
+        </span>
+        {{ end }}
+      </div>
+      <h2 class="post-title">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </h2>
+      {{ if .Description }}
+      <p class="post-excerpt">{{ .Description }}</p>
+      {{ else }}
+      <p class="post-excerpt">{{ .Summary | truncate 150 }}</p>
+      {{ end }}
+    </article>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
