@@ -31,7 +31,7 @@
   
   function displayResults(results, query) {
     if (results.length === 0) {
-      searchResults.innerHTML = '<div class="search-result-item"><p>未找到相关文章</p></div>';
+      searchResults.innerHTML = '<div class="search-result-item"><p>No posts found</p></div>';
       return;
     }
     

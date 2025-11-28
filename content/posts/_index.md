@@ -1,7 +1,7 @@
 ---
-title: "所有文章"
+title: "All Posts"
 date: 2024-01-01
 ---
 
-这里是所有文章的列表。
+Here is a list of all posts.
 

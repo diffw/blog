@@ -6,13 +6,13 @@
   </div>
   {{ end }}
   
-  <h1 class="page-title">最新文章</h1>
+  <h1 class="page-title">Latest Posts</h1>
   
   <div class="posts-list">
     {{ range first 10 .Site.RegularPages }}
     <article class="post-card">
       <div class="post-meta">
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
         {{ if .Params.categories }}
         <span class="categories">
           {{ range .Params.categories }}
@@ -42,7 +42,7 @@
   
   {{ if gt (len .Site.RegularPages) 10 }}
   <div class="more-posts">
-    <a href="{{ "/posts/" | relLangURL }}" class="btn">查看更多文章 →</a>
+    <a href="{{ "/posts/" | relLangURL }}" class="btn">View More Posts →</a>
   </div>
   {{ end }}
 </div>

@@ -1,29 +1,29 @@
 ---
-title: "欢迎来到我的博客"
+title: "Welcome to My Blog"
 date: 2024-01-01T10:00:00+08:00
 draft: false
-categories: ["生活"]
-tags: ["博客", "开始"]
-description: "这是我的第一篇博客文章，欢迎阅读！"
+categories: ["Life"]
+tags: ["blog", "getting started"]
+description: "This is my first blog post, welcome to read!"
 ---
 
-# 欢迎来到我的博客
+# Welcome to My Blog
 
-这是我的第一篇博客文章。我会在这里分享我的设计思考和生活感悟。
+This is my first blog post. I'll share my design thoughts and life insights here.
 
-## 关于这个博客
+## About This Blog
 
-这个博客使用 Hugo 构建，采用现代简洁的设计风格，支持暗色模式。
+This blog is built with Hugo, featuring a modern and clean design style with dark mode support.
 
-## 功能特点
+## Features
 
-- 📱 响应式设计，支持桌面、平板和移动设备
-- 🌙 暗色模式支持
-- 🔍 全文搜索功能
-- 📡 RSS 订阅
-- 🏷️ 分类和标签系统
-- ⚡ 快速加载速度
-- 🔎 SEO 优化
+- 📱 Responsive design, supporting desktop, tablet, and mobile devices
+- 🌙 Dark mode support
+- 🔍 Full-text search functionality
+- 📡 RSS subscription
+- 🏷️ Categories and tags system
+- ⚡ Fast loading speed
+- 🔎 SEO optimization
 
-希望你能在这里找到有趣的内容！
+Hope you can find interesting content here!
 

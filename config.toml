@@ -1,8 +1,8 @@
-# 基础配置
-# ⚠️ 请将 yourdomain.com 替换为你的实际域名
+# Basic Configuration
+# ⚠️ Please replace yourdomain.com with your actual domain
 baseURL = 'https://yourdomain.com'
-languageCode = 'zh-cn'
-title = '我的个人博客'
+languageCode = 'en-us'
+title = 'Say something'
 theme = 'modern-blog'
 enableRobotsTXT = true
 enableGitInfo = false
@@ -11,14 +11,14 @@ enableGitInfo = false
   pagerSize = 10
 
 [params]
-  # ⚠️ 请更新为你的名字
-  author = "Your Name"
-  description = "个人分享与生活记录"
-  keywords = "设计,生活,个人博客"
+  # ⚠️ Please update with your name
+  author = "NanWang.Art"
+  description = "Personal sharing and life records"
+  keywords = "design,life,personal blog"
   darkMode = true
   searchEnabled = true
   
-  # 社交媒体
+  # Social Media
   github = ""
   twitter = ""
   email = ""
@@ -26,27 +26,27 @@ enableGitInfo = false
 [menu]
   [[menu.main]]
     identifier = "home"
-    name = "首页"
+    name = "Home"
     url = "/"
     weight = 1
   [[menu.main]]
     identifier = "posts"
-    name = "文章"
+    name = "Posts"
     url = "/posts/"
     weight = 2
   [[menu.main]]
     identifier = "categories"
-    name = "分类"
+    name = "Categories"
     url = "/categories/"
     weight = 3
   [[menu.main]]
     identifier = "tags"
-    name = "标签"
+    name = "Tags"
     url = "/tags/"
     weight = 4
   [[menu.main]]
     identifier = "about"
-    name = "关于"
+    name = "About"
     url = "/about/"
     weight = 5
 

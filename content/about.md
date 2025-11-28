@@ -1,10 +1,10 @@
 ---
-title: "关于"
+title: "About"
 date: 2024-01-01
 draft: false
 ---
 
-欢迎来到我的个人博客！
+Welcome to my personal blog!
 
-这里记录着我的设计思考、生活感悟和日常分享。
+Here I record my design thoughts, life insights, and daily sharing.
 
