@@ -6,6 +6,8 @@ title = 'Say something'
 theme = 'modern-blog'
 enableRobotsTXT = true
 enableGitInfo = false
+canonifyURLs = true
+relativeURLs = false
 
 [pagination]
   pagerSize = 10
