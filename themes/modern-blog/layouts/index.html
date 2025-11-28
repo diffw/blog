@@ -17,6 +17,9 @@
       {{/* 渲染为 Markdown */}}
       {{ if and $nowFirstModule (ne $nowFirstModule "") }}
         {{ $nowFirstModule = $nowFirstModule | .RenderString }}
+      {{ else }}
+        {{/* 如果为空，使用默认内容 */}}
+        {{ $nowFirstModule = "<p>Building a chrome extension with Cursor.</p>" }}
       {{ end }}
     {{ end }}
   {{ end }}
