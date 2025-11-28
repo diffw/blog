@@ -18,6 +18,10 @@
         {{ $nowFirstModule = $nowFirstModule | .RenderString }}
       {{ end }}
     {{ end }}
+    {{/* 如果 nowFirstModule 为空，使用默认内容（包含时间） */}}
+    {{ if not $nowFirstModule }}
+      {{ $nowFirstModule = "<p>Building a chrome extension with Cursor.</p>\n<p>Last update: Nov 28, 2025</p>" }}
+    {{ end }}
   {{ end }}
   
   {{/* 获取最新的一篇博客 */}}
