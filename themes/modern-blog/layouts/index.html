@@ -33,10 +33,10 @@
   
   {{/* 获取原始内容并替换占位符，然后渲染 */}}
   {{ $rawContent := .RawContent }}
-  {{ if $nowFirstModule }}
+  {{ if and $nowFirstModule (ne $nowFirstModule "") }}
     {{ $rawContent = replace $rawContent "/读取 now.md 第一个模块的内容" $nowFirstModule }}
   {{ end }}
-  {{ if $latestPostContent }}
+  {{ if and $latestPostContent (ne $latestPostContent "") }}
     {{ $rawContent = replace $rawContent "/读取 https://nanwang.art/posts/ 第一篇blog" $latestPostContent }}
   {{ end }}
   
