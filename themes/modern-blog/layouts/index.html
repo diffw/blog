@@ -3,20 +3,23 @@
   <div class="posts-list">
     {{ range first 10 .Site.RegularPages }}
     <article class="post-card">
-      <div class="post-card-header">
-        <h2 class="post-title">
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </h2>
-        <div class="post-meta-right">
-          {{ if .Params.tags }}
-          <div class="post-tags">
-            {{ range .Params.tags }}
-            <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">#{{ . }}</a>
-            {{ end }}
-          </div>
+      <div class="post-content-preview">
+        {{ $content := .Content | plainify }}
+        {{ $truncated := $content | truncate 100 }}
+        <p>{{ $truncated }}</p>
+        {{ if gt (len $content) 100 }}
+        <a href="{{ .Permalink }}" class="read-more">Read more...</a>
+        {{ end }}
+      </div>
+      <div class="post-meta-bottom">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        {{ if .Params.tags }}
+        <div class="post-tags">
+          {{ range .Params.tags }}
+          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">#{{ . }}</a>
           {{ end }}
-          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
         </div>
+        {{ end }}
       </div>
     </article>
     {{ end }}

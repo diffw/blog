@@ -289,6 +289,38 @@ a:hover {
   gap: 1rem;
 }
 
+.post-content-preview {
+  margin-bottom: 1.5rem;
+}
+
+.post-content-preview p {
+  color: var(--text-color);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.read-more {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+.post-meta-bottom {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
 .post-meta {
   display: flex;
   align-items: center;
