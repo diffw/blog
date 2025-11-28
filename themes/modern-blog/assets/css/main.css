@@ -72,12 +72,11 @@ a:hover {
 /* Header */
 .site-header {
   border-bottom: none;
-  background-color: var(--bg-color);
+  background-color: transparent;
   position: sticky;
   top: 0;
   z-index: 100;
   backdrop-filter: none;
-  background-color: var(--bg-color);
 }
 
 .header-content {
