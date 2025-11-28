@@ -1,6 +1,6 @@
 # Basic Configuration
 # ⚠️ Please replace yourdomain.com with your actual domain
-baseURL = 'https://yourdomain.com'
+baseURL = 'https://diffw.github.io/blog'
 languageCode = 'en-us'
 title = 'Say something'
 theme = 'modern-blog'
