@@ -359,10 +359,8 @@ a:hover {
   gap: 1rem;
   font-size: 0.9rem;
   color: var(--text-secondary);
-  padding-top: 1rem;
   border-top: none;
   flex-wrap: wrap;
-  margin-top: 1rem;
 }
 
 .post-meta {
