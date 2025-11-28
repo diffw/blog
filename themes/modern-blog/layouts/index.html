@@ -60,6 +60,10 @@
   {{ $rawContent := .RawContent }}
   {{ if and $nowFirstModule (ne $nowFirstModule "") }}
     {{ $rawContent = replace $rawContent "/读取 now.md 第一个模块的内容" $nowFirstModule }}
+  {{ else }}
+    {{/* 如果提取失败，使用默认内容 */}}
+    {{ $nowFirstModule = "<p>Building a chrome extension with Cursor. It's been so fun and exciting. It feels as if I've gone back 20 years—to the days of building personal websites with Flash, Dreamweaver, and Photoshop. I've found a new toy.</p>\n<p><em>Last update: Nov 28, 2025</em></p>" }}
+    {{ $rawContent = replace $rawContent "/读取 now.md 第一个模块的内容" $nowFirstModule }}
   {{ end }}
   {{ if and $latestPostContent (ne $latestPostContent "") }}
     {{ $rawContent = replace $rawContent "/读取 https://nanwang.art/posts/ 第一篇blog" $latestPostContent }}
