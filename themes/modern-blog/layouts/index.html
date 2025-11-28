@@ -5,11 +5,7 @@
   {{ $nowPage := .Site.GetPage "page" "now" }}
   {{ $nowFirstModule := "" }}
   {{ if $nowPage }}
-    {{/* 尝试使用 RawContent，如果失败则使用 Content */}}
     {{ $nowContent := $nowPage.RawContent }}
-    {{ if not $nowContent }}
-      {{ $nowContent = $nowPage.Content | plainify }}
-    {{ end }}
     {{/* 按 --- 分割内容 */}}
     {{ $parts := split $nowContent "---" }}
     {{/* 提取第 2 个与第 3 个 --- 之间的内容 */}}
