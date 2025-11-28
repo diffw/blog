@@ -15,7 +15,7 @@
       {{/* 清理前后空白 */}}
       {{ $nowFirstModule = $nowFirstModule | strings.TrimSpace }}
       {{/* 渲染为 Markdown */}}
-      {{ if $nowFirstModule }}
+      {{ if and $nowFirstModule (ne $nowFirstModule "") }}
         {{ $nowFirstModule = $nowFirstModule | .RenderString }}
       {{ end }}
     {{ end }}
