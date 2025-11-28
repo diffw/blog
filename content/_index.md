@@ -4,13 +4,7 @@ date: 2024-01-01
 draft: false
 ---
 
-# Nan Wang
-
-Email Twitter Instagram Dribbble 
-
-A Christian, a designer, the husband of one woman, and the father of three children.
-
-Born in China, live in Dallas Texas.
+A Christian, a designer, the husband of one woman, and the father of three children. Born in China, live in Dallas Texas.
 
 * More about me.
 * What am I doing now?
