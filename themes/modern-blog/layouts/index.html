@@ -8,14 +8,16 @@
     {{ $nowContent := $nowPage.RawContent }}
     {{/* 按行分割内容 */}}
     {{ $lines := split $nowContent "\n" }}
-    {{/* 提取第 8 行到第 11 行之间的内容（索引 7-10，因为索引从 0 开始，end 不包含） */}}
+    {{/* 提取第 8 行到第 11 行之间的内容（索引 7-10，因为索引从 0 开始） */}}
     {{ if ge (len $lines) 11 }}
       {{ $selectedLines := slice $lines 7 11 }}
       {{ $nowFirstModule = delimit $selectedLines "\n" }}
-    {{ end }}
-    {{/* 清理前后空白并渲染为 Markdown */}}
-    {{ if $nowFirstModule }}
-      {{ $nowFirstModule = $nowFirstModule | strings.TrimSpace | .RenderString }}
+      {{/* 清理前后空白 */}}
+      {{ $nowFirstModule = $nowFirstModule | strings.TrimSpace }}
+      {{/* 渲染为 Markdown */}}
+      {{ if $nowFirstModule }}
+        {{ $nowFirstModule = $nowFirstModule | .RenderString }}
+      {{ end }}
     {{ end }}
   {{ end }}
   
