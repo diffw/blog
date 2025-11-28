@@ -12,18 +12,19 @@
       </span>
       {{ end }}
     </div>
-    {{ if .Params.tags }}
-    <div class="post-tags">
-      {{ range .Params.tags }}
-      <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">#{{ . }}</a>
-      {{ end }}
-    </div>
-    {{ end }}
   </header>
   
   <div class="post-content">
     {{ .Content }}
   </div>
+  
+  {{ if .Params.tags }}
+  <div class="post-tags">
+    {{ range .Params.tags }}
+    <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">#{{ . }}</a>
+    {{ end }}
+  </div>
+  {{ end }}
   
   <footer class="post-footer">
     <div class="post-nav">
