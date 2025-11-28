@@ -8,11 +8,11 @@
     {{ $nowContent := $nowPage.RawContent }}
     {{/* 提取第一个模块（第二个 --- 到第三个 --- 之间的内容） */}}
     {{ $parts := split $nowContent "---" }}
-    {{ if ge (len $parts) 3 }}
-      {{/* 第二个 --- 之后的内容（索引 2）是第一个模块 */}}
+    {{ if ge (len $parts) 4 }}
+      {{/* 有 3 个 ---，split 得到 4 个部分，索引 2 是第一个模块 */}}
       {{ $nowFirstModule = index $parts 2 }}
-    {{ else if eq (len $parts) 2 }}
-      {{/* 如果没有第三个 ---，取第二个 --- 之后的所有内容 */}}
+    {{ else if eq (len $parts) 3 }}
+      {{/* 有 2 个 ---，split 得到 3 个部分，索引 1 是内容 */}}
       {{ $nowFirstModule = index $parts 1 }}
     {{ end }}
     {{/* 清理前后空白 */}}
