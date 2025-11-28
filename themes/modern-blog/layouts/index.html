@@ -1,7 +1,47 @@
 {{ define "main" }}
 {{ if .Content }}
 <div class="home-page-content">
-  {{ .Content }}
+  {{ $content := .Content }}
+  
+  {{/* 获取 now.md 页面 */}}
+  {{ $nowPage := .Site.GetPage "page" "now.md" }}
+  {{ $nowFirstModule := "" }}
+  {{ if $nowPage }}
+    {{ $nowContent := $nowPage.RawContent }}
+    {{/* 提取第一个模块（第二个 --- 到第三个 --- 之间的内容） */}}
+    {{ $parts := split $nowContent "---" }}
+    {{ if ge (len $parts) 3 }}
+      {{/* 第二个 --- 之后的内容（索引 2）是第一个模块 */}}
+      {{ $nowFirstModule = (index $parts 2) }}
+    {{ else if eq (len $parts) 2 }}
+      {{/* 如果没有第三个 ---，取第二个 --- 之后的所有内容 */}}
+      {{ $nowFirstModule = (index $parts 1) }}
+    {{ end }}
+    {{/* 清理前后空白 */}}
+    {{ $nowFirstModule = $nowFirstModule | strings.TrimSpace }}
+  {{ end }}
+  
+  {{/* 获取最新的一篇博客 */}}
+  {{ $posts := .Site.GetPage "section" "posts" }}
+  {{ $latestPostContent := "" }}
+  {{ if $posts }}
+    {{ $sortedPosts := sort $posts.Pages "Date" "desc" }}
+    {{ if gt (len $sortedPosts) 0 }}
+      {{ $latestPost := index $sortedPosts 0 }}
+      {{ $excerpt := $latestPost.Content | plainify | truncate 200 }}
+      {{ $latestPostContent = printf "<div class=\"latest-post-preview\"><h3><a href=\"%s\">%s</a></h3><div class=\"post-date\">%s</div><div class=\"post-excerpt\">%s</div></div>" $latestPost.Permalink $latestPost.Title ($latestPost.Date.Format "January 2, 2006") $excerpt }}
+    {{ end }}
+  {{ end }}
+  
+  {{/* 替换占位符 */}}
+  {{ if $nowFirstModule }}
+    {{ $content = $content | replaceRE `/读取 now\.md 第一个模块的内容` $nowFirstModule }}
+  {{ end }}
+  {{ if $latestPostContent }}
+    {{ $content = $content | replaceRE `/读取 https://nanwang\.art/posts/ 第一篇blog` $latestPostContent }}
+  {{ end }}
+  
+  {{ $content | safeHTML }}
 </div>
 {{ else }}
 <div class="home-page">

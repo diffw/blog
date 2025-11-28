@@ -301,6 +301,38 @@ a:hover {
   text-decoration: underline;
 }
 
+.latest-post-preview {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.latest-post-preview h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.latest-post-preview h3 a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.latest-post-preview h3 a:hover {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.latest-post-preview .post-date {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.latest-post-preview .post-excerpt {
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
 .page-title {
   font-size: 2rem;
   font-weight: 700;
