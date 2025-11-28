@@ -191,35 +191,36 @@ a:hover {
   width: 100%;
   padding: 1rem 1.5rem;
   font-size: 1.2rem;
-  border: 2px solid var(--border-color);
-  border-radius: 8px;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 0;
   background-color: var(--bg-color);
   color: var(--text-color);
   outline: none;
 }
 
 #search-input:focus {
-  border-color: var(--accent-color);
+  border-bottom-color: var(--accent-color);
 }
 
 .search-results {
   margin-top: 1rem;
   background-color: var(--bg-color);
-  border-radius: 8px;
+  border-radius: 0;
   max-height: 60vh;
   overflow-y: auto;
-  box-shadow: 0 4px 6px var(--shadow);
+  box-shadow: none;
 }
 
 .search-result-item {
   padding: 1rem 1.5rem;
   border-bottom: 1px solid var(--border-color);
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: none;
 }
 
 .search-result-item:hover {
-  background-color: var(--card-bg);
+  background-color: transparent;
 }
 
 .search-result-item:last-child {
@@ -465,7 +466,7 @@ a:hover {
 .post-content code {
   background-color: var(--code-bg);
   padding: 0.2rem 0.4rem;
-  border-radius: 4px;
+  border-radius: 0;
   font-size: 0.9em;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
 }
@@ -504,10 +505,10 @@ a:hover {
 }
 
 .post-content mark {
-  background-color: var(--accent-color);
-  color: white;
+  background-color: var(--code-bg);
+  color: var(--text-color);
   padding: 0.1rem 0.2rem;
-  border-radius: 3px;
+  border-radius: 0;
 }
 
 .post-footer {
