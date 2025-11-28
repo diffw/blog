@@ -5,6 +5,7 @@
   {{ $nowPage := .Site.GetPage "page" "now" }}
   {{ $nowFirstModule := "" }}
   {{ if $nowPage }}
+    {{/* 使用 RawContent 获取原始内容 */}}
     {{ $nowContent := $nowPage.RawContent }}
     {{/* 按 --- 分割内容 */}}
     {{ $parts := split $nowContent "---" }}
