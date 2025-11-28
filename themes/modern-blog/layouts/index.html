@@ -17,11 +17,9 @@
       {{/* 如果没有第三个 ---，取第二个 --- 之后的所有内容 */}}
       {{ $nowFirstModule = (index $parts 1) }}
     {{ end }}
-    {{/* 清理前后空白 */}}
-    {{ $nowFirstModule = $nowFirstModule | strings.TrimSpace }}
-    {{/* 将 now.md 内容渲染为 Markdown */}}
+    {{/* 清理前后空白并渲染为 Markdown */}}
     {{ if $nowFirstModule }}
-      {{ $nowFirstModule = $nowFirstModule | .RenderString }}
+      {{ $nowFirstModule = $nowFirstModule | strings.TrimSpace | .RenderString }}
     {{ end }}
   {{ end }}
   
