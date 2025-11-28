@@ -7,12 +7,8 @@
   {{ if $nowPage }}
     {{/* 使用 RawContent 获取原始内容 */}}
     {{ $nowContent := $nowPage.RawContent }}
-    {{/* 按 --- 分割内容（使用换行符分隔） */}}
-    {{ $parts := split $nowContent "---\n" }}
-    {{/* 如果 split 失败，尝试使用单个 --- */}}
-    {{ if le (len $parts) 1 }}
-      {{ $parts = split $nowContent "---" }}
-    {{ end }}
+    {{/* 按 --- 分割内容 */}}
+    {{ $parts := split $nowContent "---" }}
     {{/* 提取第 2 个与第 3 个 --- 之间的内容 */}}
     {{ if ge (len $parts) 4 }}
       {{/* 有 3 个 ---，split 得到 4 个部分，索引 2 是第一个模块 */}}
