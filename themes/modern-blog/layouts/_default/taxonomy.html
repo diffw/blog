@@ -1,28 +1,29 @@
 {{ define "main" }}
-<div class="taxonomy-page">
-  <h1 class="page-title">{{ .Title }}</h1>
-  
-  <div class="taxonomy-list">
+<div class="home-page">
+  <div class="posts-list">
     {{ range .Pages }}
     <article class="post-card">
-      <div class="post-meta">
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
-        {{ if .Params.categories }}
-        <span class="categories">
-          {{ range .Params.categories }}
-          <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" class="category-tag">{{ . }}</a>
-          {{ end }}
-        </span>
+      <div class="post-content-preview">
+        {{ $content := .Content | plainify }}
+        {{ $contentLength := len $content }}
+        {{ if gt $contentLength 1000 }}
+          {{ $truncated := $content | truncate 1000 }}
+          <div class="post-content-full">{{ $truncated }}</div>
+          <a href="{{ .Permalink }}" class="read-more">Read more...</a>
+        {{ else }}
+          <div class="post-content-full">{{ $content }}</div>
         {{ end }}
       </div>
-      <h2 class="post-title">
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-      </h2>
-      {{ if .Description }}
-      <p class="post-excerpt">{{ .Description }}</p>
-      {{ else }}
-      <p class="post-excerpt">{{ .Summary | truncate 150 }}</p>
-      {{ end }}
+      <div class="post-meta-bottom">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        {{ if .Params.tags }}
+        <div class="post-tags">
+          {{ range .Params.tags }}
+          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag">#{{ . }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
     </article>
     {{ end }}
   </div>
