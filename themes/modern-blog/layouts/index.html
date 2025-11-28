@@ -6,7 +6,8 @@
 {{ else }}
 <div class="home-page">
   <div class="posts-list">
-    {{ range first 10 .Site.RegularPages }}
+    {{ $posts := .Site.GetPage "section" "posts" }}
+    {{ range first 10 $posts.Pages }}
     <article class="post-card">
       <div class="post-content-preview">
         {{ $content := .Content | plainify }}
@@ -33,7 +34,7 @@
     {{ end }}
   </div>
   
-  {{ if gt (len .Site.RegularPages) 10 }}
+  {{ if gt (len $posts.Pages) 10 }}
   <div class="more-posts">
     <a href="{{ "/posts/" | relLangURL }}" class="btn">View More Posts →</a>
   </div>
