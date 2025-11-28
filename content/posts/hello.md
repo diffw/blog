@@ -7,5 +7,4 @@ tags: [Life]
 description: "No"
 ---
 
-# Hello
 Hello world. I'm here.
