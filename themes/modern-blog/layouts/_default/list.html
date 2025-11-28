@@ -1,7 +1,5 @@
 {{ define "main" }}
 <div class="posts-container">
-  <h1 class="page-title">{{ if .IsHome }}Latest Posts{{ else }}{{ .Title }}{{ end }}</h1>
-  
   {{ if .Content }}
   <div class="content">
     {{ .Content }}
