@@ -1,6 +1,6 @@
 # Basic Configuration
 # ⚠️ Please replace yourdomain.com with your actual domain
-baseURL = 'https://blog.nanwang.art/'
+baseURL = 'https://nanwang.art/'
 languageCode = 'en-us'
 title = 'Nan Wang'
 theme = 'modern-blog'

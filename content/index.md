@@ -14,7 +14,7 @@ Born in China, live in Dallas Texas.
 
 * More about me.
 * What am I doing now?
-* [My blog](https://blog.nanwang.art/posts/)
+* [My blog](https://nanwang.art/posts/)
 
  coming soon...
 
