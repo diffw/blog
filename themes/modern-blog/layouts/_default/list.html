@@ -16,8 +16,8 @@
         <div class="post-content-preview">
           {{ $content := .Content | plainify }}
           {{ $contentLength := len $content }}
-          {{ if gt $contentLength 1000 }}
-            {{ $truncated := $content | truncate 1000 }}
+          {{ if gt $contentLength 500 }}
+            {{ $truncated := $content | truncate 500 }}
             <div class="post-content-full">{{ $truncated }}</div>
             <a href="{{ .Permalink }}" class="read-more">Read more...</a>
           {{ else }}
@@ -42,8 +42,8 @@
         <div class="post-content-preview">
           {{ $content := .Content | plainify }}
           {{ $contentLength := len $content }}
-          {{ if gt $contentLength 1000 }}
-            {{ $truncated := $content | truncate 1000 }}
+          {{ if gt $contentLength 500 }}
+            {{ $truncated := $content | truncate 500 }}
             <div class="post-content-full">{{ $truncated }}</div>
             <a href="{{ .Permalink }}" class="read-more">Read more...</a>
           {{ else }}
