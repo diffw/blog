@@ -19,10 +19,10 @@
         {{ $nowFirstModule = $nowFirstModule | .RenderString }}
       {{ end }}
     {{ end }}
-  {{ end }}
-  {{/* 如果 nowFirstModule 为空，使用默认内容 */}}
-  {{ if not $nowFirstModule }}
-    {{ $nowFirstModule = "<p>Building a chrome extension with Cursor.</p>" }}
+    {{/* 如果 nowFirstModule 为空，使用默认内容 */}}
+    {{ if not $nowFirstModule }}
+      {{ $nowFirstModule = "<p>Building a chrome extension with Cursor.</p>" }}
+    {{ end }}
   {{ end }}
   
   {{/* 获取最新的一篇博客 */}}
