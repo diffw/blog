@@ -31,8 +31,25 @@
     {{ $sortedPosts := sort $posts.Pages "Date" "desc" }}
     {{ if gt (len $sortedPosts) 0 }}
       {{ $latestPost := index $sortedPosts 0 }}
-      {{ $excerpt := $latestPost.Content | plainify | truncate 200 }}
-      {{ $latestPostContent = printf "<div class=\"latest-post-preview\"><h3><a href=\"%s\">%s</a></h3><div class=\"post-date\">%s</div><div class=\"post-excerpt\">%s</div></div>" $latestPost.Permalink $latestPost.Title ($latestPost.Date.Format "January 2, 2006") $excerpt }}
+      {{/* 使用与列表页面相同的样式 */}}
+      {{ $content := $latestPost.Content | plainify }}
+      {{ $contentLength := len $content }}
+      {{ $contentHTML := "" }}
+      {{ if gt $contentLength 1000 }}
+        {{ $truncated := $content | truncate 1000 }}
+        {{ $contentHTML = printf "<div class=\"post-content-full\">%s</div><a href=\"%s\" class=\"read-more\">Read more...</a>" $truncated $latestPost.Permalink }}
+      {{ else }}
+        {{ $contentHTML = printf "<div class=\"post-content-full\">%s</div>" $content }}
+      {{ end }}
+      {{ $tagsHTML := "" }}
+      {{ if $latestPost.Params.tags }}
+        {{ $tagsList := slice }}
+        {{ range $latestPost.Params.tags }}
+          {{ $tagsList = $tagsList | append (printf "<a href=\"/tags/%s\" class=\"tag\">#%s</a>" (. | urlize) .) }}
+        {{ end }}
+        {{ $tagsHTML = printf "<div class=\"post-tags\">%s</div>" (delimit $tagsList "") }}
+      {{ end }}
+      {{ $latestPostContent = printf "<article class=\"post-card\"><div class=\"post-content-preview\">%s</div><div class=\"post-meta-bottom\"><time datetime=\"%s\">%s</time>%s</div></article>" $contentHTML ($latestPost.Date.Format "2006-01-02") ($latestPost.Date.Format "January 2, 2006") $tagsHTML }}
     {{ end }}
   {{ end }}
   
