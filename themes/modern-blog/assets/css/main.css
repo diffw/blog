@@ -271,6 +271,11 @@ a:hover {
   color: var(--text-color);
 }
 
+.home-page-content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
 .home-page-content ul {
   list-style: none;
   padding: 0;
