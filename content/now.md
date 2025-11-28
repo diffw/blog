@@ -8,5 +8,6 @@ description: ""
 ---
 
 Building a chrome extension with Cursor.
+Last update: Nov 28, 2025
 
 
