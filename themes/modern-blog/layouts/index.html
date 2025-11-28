@@ -5,17 +5,27 @@
   {{ $nowPage := .Site.GetPage "page" "now" }}
   {{ $nowFirstModule := "" }}
   {{ if $nowPage }}
-    {{/* 使用 RawContent 获取原始内容 */}}
+    {{/* 使用 RawContent 获取原始内容（不包含 front matter） */}}
     {{ $nowContent := $nowPage.RawContent }}
     {{/* 按 --- 分割内容 */}}
     {{ $parts := split $nowContent "---" }}
     {{/* 提取第 2 个与第 3 个 --- 之间的内容 */}}
-    {{ if ge (len $parts) 4 }}
-      {{/* 有 3 个 ---，split 得到 4 个部分，索引 2 是第一个模块 */}}
-      {{ $nowFirstModule = index $parts 2 }}
-    {{ else if ge (len $parts) 3 }}
-      {{/* 有 2 个 ---，split 得到 3 个部分，索引 1 是内容 */}}
-      {{ $nowFirstModule = index $parts 1 }}
+    {{ if ge (len $parts) 3 }}
+      {{/* 有 2 个或更多 ---，split 得到多个部分 */}}
+      {{/* 如果 RawContent 不包含 front matter，第一个 --- 之前是空，第二个 --- 之前是第一个模块 */}}
+      {{ if ge (len $parts) 3 }}
+        {{/* 有 2 个 ---，split 得到 3 个部分，索引 1 是第一个模块（在第一个和第二个 --- 之间） */}}
+        {{ $nowFirstModule = index $parts 1 }}
+      {{ else if ge (len $parts) 2 }}
+        {{/* 只有 1 个 ---，split 得到 2 个部分，索引 0 是第一个模块（在第一个 --- 之前） */}}
+        {{ $nowFirstModule = index $parts 0 }}
+      {{ end }}
+    {{ else if ge (len $parts) 2 }}
+      {{/* 只有 1 个 ---，split 得到 2 个部分，索引 0 是第一个模块（在第一个 --- 之前） */}}
+      {{ $nowFirstModule = index $parts 0 }}
+    {{ else }}
+      {{/* 没有 ---，整个内容就是第一个模块 */}}
+      {{ $nowFirstModule = $nowContent }}
     {{ end }}
     {{/* 清理前后空白，但保留内部换行 */}}
     {{ if $nowFirstModule }}
