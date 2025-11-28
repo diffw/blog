@@ -319,6 +319,7 @@ a:hover {
   color: var(--text-secondary);
   padding-top: 1rem;
   border-top: 1px solid var(--border-color);
+  flex-wrap: wrap;
 }
 
 .post-meta {
