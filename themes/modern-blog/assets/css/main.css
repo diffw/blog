@@ -359,15 +359,15 @@ a:hover {
 .posts-list {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 4rem;
 }
 
 .post-card {
-  padding: 2rem 0;
-  background-color: transparent;
+  /* padding: 2rem 0; */
+  background-color: initial;
   border-radius: 0;
   border: none;
-  border-bottom: 1px solid var(--border-color);
+  /* border-bottom: 1px solid var(--border-color); */
   transition: none;
 }
 
