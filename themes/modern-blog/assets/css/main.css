@@ -311,6 +311,7 @@ a:hover {
 .update em {
   color: var(--text-secondary);
   font-style: normal;
+  font-size: 0.9rem;
 }
 
 /* Blog section styles */
