@@ -6,6 +6,8 @@
     <a href="https://nanwang.art/" class="site-title page-header-title">Back</a>
     {{ else if eq .Section "posts" }}
     <a href="https://nanwang.art/" class="site-title page-header-title">Back</a>
+    {{ else if or (eq .Section "tags") (eq .Section "categories") }}
+    <a href="https://nanwang.art/" class="site-title page-header-title">Back</a>
     {{ else }}
     <a href="https://nanwang.art/" class="site-title">{{ .Site.Title }}</a>
     {{ end }}
