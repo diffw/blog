@@ -2,6 +2,8 @@
   <div class="header-content">
     {{ if .IsHome }}
     <a href="https://nanwang.art/" class="site-title">{{ .Site.Title }}</a>
+    {{ else if and (eq .Section "posts") .IsPage }}
+    <a href="#" onclick="history.back(); return false;" class="site-title page-header-title">Back</a>
     {{ else if eq .Section "" }}
     <a href="https://nanwang.art/" class="site-title page-header-title">Back</a>
     {{ else if eq .Section "posts" }}
