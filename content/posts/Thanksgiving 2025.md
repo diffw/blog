@@ -8,6 +8,3 @@ description: ""
 ---
 
 Yeasterday, I shared the 2025 thanksgiving topics with my family. Writing down my gratidue has become increasingly difficult for me. I tried my best to recall the grace God has given to our family and to me over the past year - reviewing it bit by bit, drawing it out little by little from my reluctant human nature as I try to look back on God. I am deeply grateful that God loves me and has not given up on me.
-
-昨天和家人一起分享了 2025 年的感恩题目。写感恩题目对我来说是一件越来越难的事情。我尽力回想这一年来上帝给我们家的恩典、给我的恩典，一点点地回顾，一点点地从我不情愿的人性里挤出来，去思想神。很感恩，上帝爱我，没有放弃我。
-
