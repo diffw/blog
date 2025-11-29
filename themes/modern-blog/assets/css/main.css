@@ -542,6 +542,12 @@ a:hover {
   color: var(--text-color);
 }
 
+.post-content em {
+  font-size: 0.9rem;
+  font-style: normal;
+  color: var(--text-secondary);
+}
+
 .post-content h1,
 .post-content h2,
 .post-content h3,
