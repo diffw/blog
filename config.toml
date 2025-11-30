@@ -1,75 +1,10 @@
-# Basic Configuration
-# ⚠️ Please replace yourdomain.com with your actual domain
 baseURL = 'https://nanwang.art/'
 languageCode = 'en-us'
 title = 'Nan Wang'
 theme = 'modern-blog'
-enableRobotsTXT = true
-enableGitInfo = false
-canonifyURLs = true
-relativeURLs = false
-
-[pagination]
-  pagerSize = 10
 
 [params]
-  # ⚠️ Please update with your name
-  author = "NanWang.Art"
-  description = ""
-  keywords = "design,life,personal blog"
-  darkMode = true
-  searchEnabled = true
-  
-  # Social Media
-  github = ""
-  twitter = ""
-  email = ""
-
-[menu]
-  [[menu.main]]
-    identifier = "home"
-    name = "Home"
-    url = "/"
-    weight = 1
-  [[menu.main]]
-    identifier = "posts"
-    name = "Posts"
-    url = "/posts/"
-    weight = 2
-  [[menu.main]]
-    identifier = "categories"
-    name = "Categories"
-    url = "/categories/"
-    weight = 3
-  [[menu.main]]
-    identifier = "tags"
-    name = "Tags"
-    url = "/tags/"
-    weight = 4
-  [[menu.main]]
-    identifier = "about"
-    name = "About"
-    url = "/about/"
-    weight = 5
-
-[taxonomies]
-  category = "categories"
-  tag = "tags"
-
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-  [markup.highlight]
-    style = "github-dark"
-    lineNos = true
-    lineNumbersInTable = true
-
-[outputs]
-  home = ["HTML", "RSS", "JSON"]
-  
-[sitemap]
-  changefreq = "monthly"
-  priority = 0.5
-  filename = "sitemap.xml"
+  author = 'NanWang.Art'
+  description = ''
+  keywords = 'design,life,personal blog'
 
