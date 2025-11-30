@@ -17,3 +17,7 @@ A Christian, a designer, the husband of one woman, and the father of three child
 <h2><a href="https://nanwang.art/posts/">My blog</a></h2>
 /读取 https://nanwang.art/posts/ 第一篇blog
 </div>
+<div class="section contact">
+<h2>Contact</h2>
+hi{at}nanwang.art
+</div>
