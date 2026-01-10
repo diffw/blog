@@ -7,9 +7,15 @@ tags: []
 description: ""
 ---
 
+After Christmas 2025, I began speding time with God every morning at 5:30 in my walk-in closet, being still, praying, and reading the Bible. At the same time, I have been devoting much of my energy at work to learning AI tools. My chrome extension project is currently on hold.
+
+*Last update: Jan 10, 2026*
+
+---
+
 Building a chrome extension with Cursor. It’s been so fun and exciting. It feels as if I’ve gone back 20 years—to the days of building personal websites with Flash, Dreamweaver, and Photoshop. I’ve found a new toy.
 
-*Last update: Nov 28, 2025*
+*Nov 28, 2025*
 
 ---
 
