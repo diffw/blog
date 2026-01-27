@@ -6,10 +6,11 @@ categories: []
 tags: []
 description: ""
 ---
+I'm about to release my first Mac app. It's been a really interesting experiment. No matter whether it succeeds-or even whether anyone uses it- I'm still happy. It fulfills my dream of becoming an independent developer as a designer.
 
-After Christmas 2025, I began speding time with God every morning at 5:30 in my walk-in closet, being still, praying, and reading the Bible. At the same time, I have been devoting much of my energy at work to learning AI tools. My chrome extension project is currently on hold.
+*Last update: Jan 26, 2026*
 
-*Last update: Jan 10, 2026*
+After Christmas 2025, I began spending time with God every morning at 5:30 in my walk-in closet, being still, praying, and reading the Bible. At the same time, I have been devoting much of my energy at work to learning AI tools. My chrome extension project is currently on hold.
 
 ---
 
