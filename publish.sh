@@ -1,78 +1,78 @@
 #!/bin/bash
 
-# 一键发布博客文章脚本
-# 使用方法: ./publish.sh "文章标题"
+# One-click blog post publishing script
+# Usage: ./publish.sh "Post title"
 
-# 检查参数
+# Validate arguments
 if [ -z "$1" ]; then
-    echo "❌ 错误: 请提供文章标题"
+    echo "❌ Error: please provide a post title"
     echo ""
-    echo "使用方法:"
-    echo "  ./publish.sh \"我的文章标题\""
+    echo "Usage:"
+    echo "  ./publish.sh \"My post title\""
     echo ""
-    echo "或者:"
+    echo "Or:"
     echo "  ./publish.sh my-article-title"
     exit 1
 fi
 
-# 获取文章标题
+# Read title argument
 TITLE="$1"
-# 将标题转换为文件名（小写，空格替换为横线）
+# Convert title to filename (lowercase, spaces to hyphens)
 FILENAME=$(echo "$TITLE" | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | tr -d '[:punct:]')
 FILENAME="${FILENAME}.md"
 
-echo "🚀 开始发布文章: $TITLE"
-echo "📄 文件名: $FILENAME"
+echo "🚀 Starting publish: $TITLE"
+echo "📄 Filename: $FILENAME"
 echo ""
 
-# 1. 创建文章
-echo "📝 步骤 1/5: 创建文章..."
+# 1) Create post
+echo "📝 Step 1/5: Creating post..."
 hugo new posts/"$FILENAME" > /dev/null 2>&1
 
 if [ ! -f "content/posts/$FILENAME" ]; then
-    echo "❌ 创建文章失败"
+    echo "❌ Failed to create post"
     exit 1
 fi
 
-echo "✅ 文章已创建: content/posts/$FILENAME"
+echo "✅ Post created: content/posts/$FILENAME"
 echo ""
 
-# 2. 自动设置 draft: false
-echo "📝 步骤 2/5: 设置文章为发布状态..."
+# 2) Automatically set draft: false
+echo "📝 Step 2/5: Setting post to published..."
 sed -i '' 's/draft: true/draft: false/' "content/posts/$FILENAME"
-echo "✅ 已设置 draft: false"
+echo "✅ Set draft: false"
 echo ""
 
-# 3. 提示用户编辑
-echo "📝 步骤 3/5: 请编辑文章内容..."
-echo "   文件位置: content/posts/$FILENAME"
+# 3) Prompt user to edit
+echo "📝 Step 3/5: Please edit the post content..."
+echo "   File: content/posts/$FILENAME"
 echo ""
-read -p "   编辑完成后，按 Enter 继续..."
+read -p "   Press Enter to continue..."
 echo ""
 
-# 4. 添加到 Git
-echo "📝 步骤 4/5: 添加到 Git..."
+# 4) Add to Git
+echo "📝 Step 4/5: Adding to Git..."
 git add "content/posts/$FILENAME"
-echo "✅ 已添加到 Git"
+echo "✅ Added to Git"
 echo ""
 
-# 5. 提交并推送
-echo "📝 步骤 5/5: 提交并推送到 GitHub..."
+# 5) Commit and push
+echo "📝 Step 5/5: Committing and pushing to GitHub..."
 git commit -m "Add new post: $TITLE" > /dev/null 2>&1
 git push > /dev/null 2>&1
 
 if [ $? -eq 0 ]; then
-    echo "✅ 已推送到 GitHub"
+    echo "✅ Pushed to GitHub"
     echo ""
-    echo "🎉 发布完成！"
+    echo "🎉 Publish complete!"
     echo ""
-    echo "📋 下一步:"
-    echo "   1. 等待 1-2 分钟让 GitHub Actions 部署"
-    echo "   2. 查看部署状态: https://github.com/diffw/blog/actions"
-    echo "   3. 访问博客: https://nanwang.art"
+    echo "📋 Next steps:"
+    echo "   1. Wait 1–2 minutes for GitHub Actions to deploy"
+    echo "   2. Check status: https://github.com/diffw/blog/actions"
+    echo "   3. Visit: https://nanwang.art"
     echo ""
 else
-    echo "❌ 推送失败，请检查 Git 配置"
+    echo "❌ Push failed—please check your Git configuration"
     exit 1
 fi
 

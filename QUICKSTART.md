@@ -1,176 +1,176 @@
-# 快速开始指南
+# Quickstart Guide
 
-## 📋 接下来的步骤
+## 📋 Next steps
 
-### 1️⃣ 安装 Hugo（如果还没有安装）
+### 1️⃣ Install Hugo (if needed)
 
 **macOS:**
 ```bash
 brew install hugo
 ```
 
-**验证安装:**
+**Verify installation:**
 ```bash
 hugo version
 ```
-确保安装的是 **Extended** 版本（支持资源处理）
+Make sure you have the **Extended** version (required for asset processing).
 
-### 2️⃣ 配置你的博客信息
+### 2️⃣ Configure your site
 
-编辑 `config.toml` 文件，更新以下信息：
+Edit `config.toml` and update:
 
-- **baseURL**: 你的域名（例如：`https://yourdomain.com`）
-- **title**: 你的博客标题
-- **params.author**: 你的名字
-- **params.description**: 博客描述
-- **params.keywords**: 关键词（用逗号分隔）
-- **params.github/twitter/email**: 社交媒体链接（可选）
+- **baseURL**: your domain (e.g. `https://yourdomain.com`)
+- **title**: your site title
+- **params.author**: your name
+- **params.description**: site description
+- **params.keywords**: keywords (comma-separated)
+- **params.github/twitter/email**: social links (optional)
 
-### 3️⃣ 配置自定义域名（如果使用）
+### 3️⃣ Configure a custom domain (optional)
 
-编辑 `static/CNAME` 文件，将 `yourdomain.com` 替换为你的实际域名。
+Edit `static/CNAME` and replace `yourdomain.com` with your real domain.
 
-### 4️⃣ 本地测试博客
+### 4️⃣ Test locally
 
 ```bash
-# 在项目根目录运行
+# From the project root
 hugo server -D
 
-# 访问 http://localhost:1313 查看博客
+# Visit http://localhost:1313
 ```
 
-按 `Ctrl+C` 停止服务器。
+Press `Ctrl+C` to stop the server.
 
-### 5️⃣ 创建你的第一篇文章
+### 5️⃣ Create your first post
 
-**方法 1: 使用 Hugo 命令**
+**Option 1: Use Hugo**
 ```bash
 hugo new posts/my-first-post.md
 ```
 
-**方法 2: 手动创建**
-在 `content/posts/` 目录下创建新的 Markdown 文件。
+**Option 2: Create manually**
+Create a new Markdown file under `content/posts/`.
 
-**文章模板:**
+**Post template:**
 ```markdown
 ---
-title: "文章标题"
+title: "Post title"
 date: 2024-01-01T10:00:00+08:00
 draft: false
-categories: ["设计", "生活"]
-tags: ["标签1", "标签2"]
-description: "文章描述"
+categories: ["Design", "Life"]
+tags: ["tag1", "tag2"]
+description: "Post description"
 ---
 
-# 文章标题
+# Post title
 
-这里是文章内容...
+Write your post content here...
 ```
 
-### 6️⃣ 部署到 GitHub Pages
+### 6️⃣ Deploy to GitHub Pages
 
-#### 步骤 A: 创建 GitHub 仓库
+#### Step A: Create a GitHub repository
 
-1. 在 GitHub 上创建新仓库（例如：`my-blog`）
-2. **不要**初始化 README、.gitignore 或 license
+1. Create a new repository on GitHub (e.g. `my-blog`)
+2. Do **not** initialize with README, .gitignore, or license
 
-#### 步骤 B: 初始化 Git 并推送代码
+#### Step B: Initialize Git and push
 
 ```bash
-# 初始化 Git（如果还没有）
+# Initialize Git (if needed)
 git init
 
-# 添加所有文件
+# Add all files
 git add .
 
-# 提交
+# Commit
 git commit -m "Initial commit: Hugo blog setup"
 
-# 添加远程仓库（替换为你的仓库地址）
+# Add remote (replace with your repo URL)
 git remote add origin https://github.com/yourusername/your-repo.git
 
-# 推送到 GitHub
+# Push to GitHub
 git branch -M main
 git push -u origin main
 ```
 
-#### 步骤 C: 启用 GitHub Pages
+#### Step C: Enable GitHub Pages
 
-1. 进入仓库的 **Settings** > **Pages**
-2. 在 **Source** 部分，选择 **GitHub Actions**
-3. 等待 GitHub Actions 自动构建和部署（通常需要 1-2 分钟）
-4. 部署完成后，访问 `https://yourusername.github.io/your-repo/`
+1. Go to **Settings** > **Pages**
+2. Under **Source**, choose **GitHub Actions**
+3. Wait for GitHub Actions to build and deploy (usually 1–2 minutes)
+4. After deployment, visit `https://yourusername.github.io/your-repo/`
 
-#### 步骤 D: 配置自定义域名（可选）
+#### Step D: Custom domain (optional)
 
-1. 在仓库 **Settings** > **Pages** 中，在 **Custom domain** 输入你的域名
-2. 在你的域名 DNS 设置中添加 A 记录：
-   - 类型：A
-   - 主机记录：@
-   - 记录值：`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-3. 等待 DNS 生效（可能需要几分钟到几小时）
+1. In **Settings** > **Pages**, enter your domain under **Custom domain**
+2. Add A records in your DNS:
+   - Type: A
+   - Host: @
+   - Value: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+3. Wait for DNS propagation (minutes to hours)
 
-### 7️⃣ 日常使用
+### 7️⃣ Daily usage
 
-#### 创建新文章
+#### Create a new post
 ```bash
 hugo new posts/article-name.md
 ```
 
-#### 本地预览（包含草稿）
+#### Preview locally (including drafts)
 ```bash
 hugo server -D
 ```
 
-#### 本地预览（仅发布）
+#### Preview locally (published only)
 ```bash
 hugo server
 ```
 
-#### 构建静态网站
+#### Build the site
 ```bash
 hugo
 ```
-生成的文件在 `public/` 目录
+Output is in `public/`.
 
-#### 推送更新到 GitHub
+#### Push updates to GitHub
 ```bash
 git add .
 git commit -m "Add new post: article name"
 git push
 ```
-GitHub Actions 会自动重新部署。
+GitHub Actions will redeploy automatically.
 
-## 🎯 检查清单
+## 🎯 Checklist
 
-- [ ] 安装 Hugo Extended
-- [ ] 更新 `config.toml` 中的个人信息
-- [ ] 本地测试博客（`hugo server -D`）
-- [ ] 创建第一篇文章
-- [ ] 创建 GitHub 仓库
-- [ ] 推送代码到 GitHub
-- [ ] 启用 GitHub Pages
-- [ ] 配置自定义域名（如果需要）
-- [ ] 开始写作！
+- [ ] Install Hugo Extended
+- [ ] Update your info in `config.toml`
+- [ ] Test locally (`hugo server -D`)
+- [ ] Create your first post
+- [ ] Create a GitHub repo
+- [ ] Push code to GitHub
+- [ ] Enable GitHub Pages
+- [ ] Configure a custom domain (if needed)
+- [ ] Start writing!
 
-## ❓ 常见问题
+## ❓ FAQ
 
-**Q: 搜索功能不工作？**
-A: 确保 `config.toml` 中 `params.searchEnabled = true`，并且构建时生成了 `index.json`
+**Q: Search doesn't work?**
+A: Ensure `params.searchEnabled = true` in `config.toml` and that `index.json` is generated during build.
 
-**Q: 暗色模式不切换？**
-A: 检查浏览器控制台是否有 JavaScript 错误，确保 `params.darkMode = true`
+**Q: Dark mode doesn't toggle?**
+A: Check the browser console for JavaScript errors and ensure `params.darkMode = true`.
 
-**Q: 部署后样式丢失？**
-A: 确保使用 Hugo Extended 版本，GitHub Actions 已配置 `extended: true`
+**Q: Styles missing after deployment?**
+A: Ensure you use Hugo Extended and GitHub Actions is configured with `extended: true`.
 
-**Q: 如何修改主题样式？**
-A: 编辑 `themes/modern-blog/assets/css/main.css` 文件
+**Q: How do I customize theme styles?**
+A: Edit `themes/modern-blog/assets/css/main.css`.
 
-## 📚 更多帮助
+## 📚 More help
 
-- [Hugo 官方文档](https://gohugo.io/documentation/)
-- [详细部署指南](./DEPLOYMENT.md)
-- [项目 README](./README.md)
+- [Hugo documentation](https://gohugo.io/documentation/)
+- [Deployment guide](./DEPLOYMENT.md)
+- [Project README](./README.md)
 
 

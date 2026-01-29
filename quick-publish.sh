@@ -1,55 +1,55 @@
 #!/bin/bash
 
-# 超简单发布脚本 - 只需编辑文件，然后运行此脚本
-# 使用方法: ./quick-publish.sh
+# Super simple publish script — edit a post, then run this script
+# Usage: ./quick-publish.sh
 
-echo "🚀 快速发布博客"
+echo "🚀 Quick publish blog"
 echo ""
 
-# 检查是否有未提交的文章（包括新文件和修改的文件）
+# Check for an uncommitted post (new or modified)
 UNCOMMITTED=$(git status --porcelain | grep "content/posts/.*\.md$" | head -1)
 
 if [ -z "$UNCOMMITTED" ]; then
-    echo "❌ 没有找到未提交的文章"
+    echo "❌ No uncommitted post found"
     echo ""
-    echo "💡 提示:"
-    echo "   1. 先创建文章: hugo new posts/文章名.md"
-    echo "   2. 编辑文章，设置 draft: false"
-    echo "   3. 然后运行此脚本"
+    echo "💡 Tip:"
+    echo "   1. Create a post: hugo new posts/my-post.md"
+    echo "   2. Edit the post and set draft: false"
+    echo "   3. Then run this script"
     exit 1
 fi
 
-# 获取文件名（处理新文件 ?? 和修改的文件 M）
+# Get filename (handles new '??' and modified 'M')
 FILE=$(echo "$UNCOMMITTED" | awk '{print $2}')
 FILENAME=$(basename "$FILE" .md)
 
-echo "📄 找到文章: $FILE"
+echo "📄 Found post: $FILE"
 echo ""
 
-# 检查是否是草稿
+# Check whether the post is still a draft
 if grep -q "draft: true" "$FILE"; then
-    echo "⚠️  警告: 文章还是草稿状态 (draft: true)"
-    read -p "   是否自动设置为发布状态? (y/n) " -n 1 -r
+    echo "⚠️  Warning: post is still a draft (draft: true)"
+    read -p "   Automatically set to publish (draft: false)? (y/n) " -n 1 -r
     echo ""
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         sed -i '' 's/draft: true/draft: false/' "$FILE"
-        echo "✅ 已设置为发布状态"
+        echo "✅ Set to publish (draft: false)"
     fi
 fi
 
-# 添加、提交、推送
+# Add, commit, and push
 echo ""
-echo "📤 正在发布..."
+echo "📤 Publishing..."
 git add "$FILE"
 git commit -m "Publish: $FILENAME" > /dev/null 2>&1
 git push > /dev/null 2>&1
 
 if [ $? -eq 0 ]; then
-    echo "✅ 发布成功！"
+    echo "✅ Published successfully!"
     echo ""
-    echo "⏱️  等待 1-2 分钟，然后访问: https://nanwang.art"
+    echo "⏱️  Wait 1–2 minutes, then visit: https://nanwang.art"
 else
-    echo "❌ 发布失败，请检查错误信息"
+    echo "❌ Publish failed—please check the error output"
     exit 1
 fi
 

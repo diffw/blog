@@ -1,324 +1,212 @@
-# 终端操作指南
+# Terminal Operations Guide
 
-本指南将一步一步教你如何在终端中操作博客的发布、删除等操作。
+This guide walks you through common terminal workflows for publishing and removing content on this blog.
 
 ---
 
-## 📝 1. 发布一个 Post
+## 📝 1. Publish a post
 
-### 步骤 1: 创建新文章
+### Step 1: Create a new post
 
 ```bash
-# 在项目根目录执行
-hugo new posts/文章名.md
+# From the project root
+hugo new posts/my-post.md
 ```
 
-**示例：**
+This creates a new file under `content/posts/`.
+
+### Step 2: Edit the post
+
+Open and edit the file with your editor:
+
 ```bash
-hugo new posts/my-new-article.md
+# Cursor / VS Code
+code content/posts/my-post.md
+
+# Or other editors
+nano content/posts/my-post.md
+vim content/posts/my-post.md
 ```
 
-这会在 `content/posts/` 目录下创建一个新文件。
+**Important:** Make sure the front matter is set to `draft: false` when you want it published.
 
-### 步骤 2: 编辑文章
-
-使用你喜欢的编辑器打开文件并编辑内容：
+### Step 3: Commit and push
 
 ```bash
-# 使用 Cursor/VS Code 打开
-code content/posts/文章名.md
-
-# 或使用其他编辑器
-nano content/posts/文章名.md
-vim content/posts/文章名.md
-```
-
-**重要：** 编辑完成后，确保 front matter 中的 `draft: false`（不是 `draft: true`）
-
-### 步骤 3: 提交并推送
-
-```bash
-# 添加文件
-git add content/posts/文章名.md
-
-# 提交
-git commit -m "Publish: 文章名"
-
-# 推送到 GitHub
+git add content/posts/my-post.md
+git commit -m "Publish: my-post"
 git push
 ```
 
-### 步骤 4: 等待部署
+### Step 4: Wait for deployment
 
-等待 1-2 分钟，GitHub Actions 会自动构建并部署。然后访问：
-- https://nanwang.art/posts/
+Wait ~1–2 minutes for GitHub Actions to build and deploy, then visit:
+- `https://nanwang.art/posts/`
 
 ---
 
-## 🗑️ 2. 删除一个或多个 Post 后，如何更新网站
+## 🗑️ 2. Delete one or more posts (and update the site)
 
-### 步骤 1: 删除文件
+### Step 1: Delete files
 
 ```bash
-# 删除单个文件
-rm content/posts/文章名.md
+# Delete a single file
+rm content/posts/my-post.md
 
-# 删除多个文件
-rm content/posts/文章1.md content/posts/文章2.md
+# Delete multiple files
+rm content/posts/post-1.md content/posts/post-2.md
 
-# 或使用通配符（谨慎使用）
-rm content/posts/要删除的文件*.md
+# Or use a glob (use with care)
+rm content/posts/to-delete-*.md
 ```
 
-### 步骤 2: 同步删除到 GitHub
+### Step 2: Stage deletions
 
 ```bash
-# 方法 1: 添加所有更改（包括删除）
+# Option 1: stage all changes (including deletions)
 git add -A
 
-# 方法 2: 只添加已跟踪文件的更改（包括删除）
+# Option 2: stage tracked-file changes only (including deletions)
 git add -u
-
-# 方法 3: 手动添加删除的文件
-git add content/posts/文章名.md
 ```
 
-**推荐使用方法 1 或 2**，它们会自动识别删除的文件。
-
-### 步骤 3: 提交并推送
+### Step 3: Commit and push
 
 ```bash
-# 提交
 git commit -m "Remove deleted posts"
-
-# 推送到 GitHub
 git push
 ```
 
-### 步骤 4: 等待部署
+### Step 4: Wait for deployment
 
-等待 1-2 分钟，网站会自动更新，删除的文章将不再显示。
+Wait ~1–2 minutes; the site will update and deleted posts will disappear.
 
 ---
 
-## 📄 3. 发布一个 Page
+## 📄 3. Publish a page
 
-### 步骤 1: 创建新页面
+### Step 1: Create a new page
 
 ```bash
-# 在 content 目录下直接创建文件
-touch content/页面名.md
-
-# 或使用编辑器创建
-code content/页面名.md
-```
-
-**示例：**
-```bash
+# Create directly under content/
 touch content/now.md
 code content/now.md
 ```
 
-### 步骤 2: 编辑页面内容
-
-在文件中添加 front matter 和内容：
+### Step 2: Add front matter and content
 
 ```markdown
 ---
-title: "页面标题"
+title: "Page title"
 date: 2025-11-28T12:00:00-06:00
 draft: false
 ---
 
-这里是页面内容...
+Page content goes here...
 ```
 
-**重要：** 确保 `draft: false`
-
-### 步骤 3: 提交并推送
+### Step 3: Commit and push
 
 ```bash
-# 添加文件
-git add content/页面名.md
-
-# 提交
-git commit -m "Add page: 页面名"
-
-# 推送到 GitHub
+git add content/now.md
+git commit -m "Add page: now"
 git push
 ```
 
-### 步骤 4: 访问页面
+### Step 4: Visit the page
 
-等待 1-2 分钟后，访问：
-- https://nanwang.art/页面名/
+After ~1–2 minutes, visit:
+- `https://nanwang.art/now/`
 
-**注意：** Page 不会出现在首页的文章列表中，只能通过直接 URL 访问。
+Note: pages do not appear in the homepage posts list; you visit them by URL.
 
 ---
 
-## 🗑️ 4. 删除一个或多个 Page 后，如何更新网站
-
-### 步骤 1: 删除文件
+## 🗑️ 4. Delete one or more pages
 
 ```bash
-# 删除单个文件
-rm content/页面名.md
-
-# 删除多个文件
-rm content/页面1.md content/页面2.md
-```
-
-### 步骤 2: 同步删除到 GitHub
-
-```bash
-# 方法 1: 添加所有更改（包括删除）
+rm content/page-to-delete.md
 git add -A
-
-# 方法 2: 只添加已跟踪文件的更改（包括删除）
-git add -u
-
-# 方法 3: 手动添加删除的文件
-git add content/页面名.md
-```
-
-### 步骤 3: 提交并推送
-
-```bash
-# 提交
 git commit -m "Remove deleted pages"
-
-# 推送到 GitHub
 git push
 ```
 
-### 步骤 4: 等待部署
-
-等待 1-2 分钟，网站会自动更新，删除的页面将不再可访问。
-
 ---
 
-## 🔍 常用 Git 命令参考
+## 🔍 Common Git commands
 
-### 查看状态
+### Status
 
 ```bash
-# 查看所有更改
 git status
-
-# 查看简略状态
 git status --short
 ```
 
-### 查看差异
+### Diffs
 
 ```bash
-# 查看文件的具体更改
 git diff
-
-# 查看已暂存的更改
 git diff --staged
 ```
 
-### 撤销更改
+### Undo changes
 
 ```bash
-# 撤销工作区的更改（未 add 的文件）
-git checkout -- 文件名
+# Discard working tree changes (not added)
+git checkout -- path/to/file
 
-# 撤销已暂存的更改（已 add 但未 commit）
-git reset HEAD 文件名
+# Unstage (added but not committed)
+git reset HEAD path/to/file
 
-# 撤销最后一次提交（保留更改）
+# Undo last commit (keep changes)
 git reset --soft HEAD~1
 ```
 
-### 查看提交历史
+### History
 
 ```bash
-# 查看提交历史
 git log --oneline
-
-# 查看最近 5 次提交
 git log --oneline -5
 ```
 
 ---
 
-## ⚡ 快速发布脚本
+## ⚡ Quick publish script
 
-如果你经常发布 Post，可以使用项目中的快速发布脚本：
+If you publish often, you can use:
 
 ```bash
-# 1. 创建文章
-hugo new posts/文章名.md
-
-# 2. 编辑文章，设置 draft: false
-
-# 3. 运行快速发布脚本
 ./quick-publish.sh
 ```
 
-这个脚本会自动：
-- 检测未提交的文章
-- 检查是否为草稿
-- 自动提交并推送
-
-**注意：** 这个脚本只适用于 `content/posts/` 目录下的文章。
+It will:
+- detect an uncommitted post under `content/posts/`
+- optionally flip `draft: true` → `draft: false`
+- commit and push
 
 ---
 
-## 📋 总结
+## 📋 Summary
 
-### Post 和 Page 的区别
+### Post vs Page
 
-| 特性 | Post | Page |
-|------|------|------|
-| 位置 | `content/posts/` | `content/` 根目录 |
-| 出现在首页 | ✅ 是 | ❌ 否 |
-| 出现在 `/posts/` | ✅ 是 | ❌ 否 |
-| 访问方式 | `/posts/文章名/` | `/页面名/` |
-| 用途 | 博客文章 | 独立页面（如 About、Now） |
+| Feature | Post | Page |
+|---|---|---|
+| Location | `content/posts/` | `content/` |
+| Appears on homepage | Yes | No |
+| Appears under `/posts/` | Yes | No |
+| URL pattern | `/posts/<slug>/` | `/<slug>/` |
+| Purpose | Blog entry | Standalone page (e.g. About, Now) |
 
-### 通用操作流程
+### Generic workflow
 
-1. **创建/编辑** → 2. **git add** → 3. **git commit** → 4. **git push** → 5. **等待部署**
-
-### 删除操作流程
-
-1. **删除文件** → 2. **git add -A** → 3. **git commit** → 4. **git push** → 5. **等待部署**
+Create/edit → `git add` → `git commit` → `git push` → wait for deploy
 
 ---
 
-## ❓ 常见问题
+## 🆘 Need help?
 
-### Q: 如何修改已发布的文章？
-
-A: 直接编辑文件，然后：
-```bash
-git add content/posts/文章名.md
-git commit -m "Update: 文章名"
-git push
-```
-
-### Q: 如何将文章改为草稿？
-
-A: 编辑文件，将 `draft: false` 改为 `draft: true`，然后提交。
-
-### Q: 删除文件后，GitHub 上还会显示吗？
-
-A: 不会。删除文件并推送后，GitHub Actions 会重新构建，删除的内容会从网站中移除。
-
-### Q: 如何查看哪些文件被修改了？
-
-A: 使用 `git status` 或 `git status --short`
-
----
-
-## 🆘 需要帮助？
-
-如果遇到问题，可以：
-1. 检查 `git status` 查看当前状态
-2. 查看 GitHub Actions 日志：https://github.com/diffw/blog/actions
-3. 检查本地构建：`hugo --minify` 查看是否有错误
+1. Run `git status` to see what changed
+2. Check GitHub Actions logs: `https://github.com/diffw/blog/actions`
+3. Try a local build: `hugo --minify`
 

@@ -1,132 +1,132 @@
-# 🚀 GitHub Pages 部署步骤
+# 🚀 GitHub Pages Deployment Steps
 
-## 快速部署指南
+## Quick deployment guide
 
-### 步骤 1: 准备代码
+### Step 1: Prepare the code
 
-所有文件已经准备好，Git 仓库已初始化。
+All files are ready and the Git repository is initialized.
 
-### 步骤 2: 创建 GitHub 仓库
+### Step 2: Create a GitHub repository
 
-1. 访问 https://github.com/new
-2. 输入仓库名称（例如：`my-blog`）
-3. **不要**勾选 "Initialize this repository with a README"
-4. 点击 "Create repository"
+1. Visit https://github.com/new
+2. Enter a repository name (e.g. `my-blog`)
+3. Do **not** check "Initialize this repository with a README"
+4. Click "Create repository"
 
-### 步骤 3: 连接本地仓库到 GitHub
+### Step 3: Connect your local repo to GitHub
 
 ```bash
-# 添加远程仓库（替换为你的仓库地址）
+# Add remote (replace with your repo URL)
 git remote add origin https://github.com/yourusername/your-repo.git
 
-# 或者使用 SSH（如果你配置了SSH密钥）
+# Or use SSH (if you've set up SSH keys)
 git remote add origin git@github.com:yourusername/your-repo.git
 ```
 
-### 步骤 4: 提交并推送代码
+### Step 4: Commit and push
 
 ```bash
-# 添加所有文件
+# Add all files
 git add .
 
-# 提交
+# Commit
 git commit -m "Initial commit: Hugo blog setup"
 
-# 设置主分支
+# Set main branch
 git branch -M main
 
-# 推送到 GitHub
+# Push to GitHub
 git push -u origin main
 ```
 
-### 步骤 5: 启用 GitHub Pages
+### Step 5: Enable GitHub Pages
 
-1. 进入你的 GitHub 仓库
-2. 点击 **Settings** > **Pages**
-3. 在 **Source** 部分，选择 **GitHub Actions**
-4. 等待 GitHub Actions 自动构建和部署（通常需要 1-2 分钟）
-5. 部署完成后，访问 `https://yourusername.github.io/your-repo/`
+1. Open your GitHub repository
+2. Click **Settings** > **Pages**
+3. Under **Source**, choose **GitHub Actions**
+4. Wait for GitHub Actions to build and deploy (usually 1–2 minutes)
+5. After deployment, visit `https://yourusername.github.io/your-repo/`
 
-### 步骤 6: 配置自定义域名（可选）
+### Step 6: Configure a custom domain (optional)
 
-如果你有自定义域名：
+If you have a custom domain:
 
-1. **在 GitHub 设置域名:**
-   - 进入仓库 **Settings** > **Pages**
-   - 在 **Custom domain** 输入你的域名（例如：`blog.yourdomain.com`）
-   - 勾选 "Enforce HTTPS"
+1. **Set the domain in GitHub:**
+   - Go to **Settings** > **Pages**
+   - Enter your domain under **Custom domain** (e.g. `blog.yourdomain.com`)
+   - Enable "Enforce HTTPS"
 
-2. **更新配置文件:**
+2. **Update configuration:**
    ```bash
-   # 编辑 config.toml，更新 baseURL
+   # Edit config.toml and update baseURL
    baseURL = 'https://blog.yourdomain.com'
    
-   # 编辑 static/CNAME，更新域名
+   # Edit static/CNAME and update the domain
    echo "blog.yourdomain.com" > static/CNAME
    ```
 
-3. **配置 DNS:**
-   - 添加 CNAME 记录：`blog` -> `yourusername.github.io`
-   - 或者添加 A 记录指向 GitHub Pages IP：
+3. **Configure DNS:**
+   - Add a CNAME record: `blog` -> `yourusername.github.io`
+   - Or add A records pointing to GitHub Pages IPs:
      - `185.199.108.153`
      - `185.199.109.153`
      - `185.199.110.153`
      - `185.199.111.153`
 
-4. **提交更改:**
+4. **Commit changes:**
    ```bash
    git add config.toml static/CNAME
    git commit -m "Configure custom domain"
    git push
    ```
 
-### 步骤 7: 更新博客信息
+### Step 7: Update site information
 
-部署前，记得更新 `config.toml` 中的个人信息：
+Before deploying, update your info in `config.toml`:
 
-- `baseURL` - 你的网站地址
-- `title` - 博客标题
-- `params.author` - 你的名字
-- `params.description` - 博客描述
+- `baseURL` - your site URL
+- `title` - site title
+- `params.author` - your name
+- `params.description` - site description
 
-## 🔄 日常更新流程
+## 🔄 Daily update flow
 
-每次更新博客后：
+After each update:
 
 ```bash
-# 添加更改
+# Stage changes
 git add .
 
-# 提交
-git commit -m "Add new post: 文章标题"
+# Commit
+git commit -m "Add new post: Post title"
 
-# 推送（会自动触发部署）
+# Push (triggers deployment)
 git push
 ```
 
-GitHub Actions 会自动重新构建和部署你的博客。
+GitHub Actions will rebuild and deploy automatically.
 
-## ❓ 常见问题
+## ❓ FAQ
 
-**Q: 部署后看不到网站？**
-A: 检查 GitHub Actions 是否有错误，确保工作流成功完成。
+**Q: Can't see the site after deployment?**
+A: Check GitHub Actions for errors and make sure the workflow completed successfully.
 
-**Q: 如何查看部署日志？**
-A: 在仓库中点击 **Actions** 标签，查看最新的工作流运行。
+**Q: How do I view deployment logs?**
+A: Open the **Actions** tab and view the latest workflow run.
 
-**Q: 如何回退到之前的版本？**
-A: 使用 Git 回退，然后推送：
+**Q: How do I roll back to a previous version?**
+A: Use Git revert and push:
 ```bash
 git revert HEAD
 git push
 ```
 
-**Q: 自定义域名不工作？**
-A: 检查 DNS 配置是否正确，等待 DNS 传播（可能需要几小时）。
+**Q: Custom domain doesn't work?**
+A: Verify DNS settings and wait for propagation (can take hours).
 
-## 📚 更多资源
+## 📚 Resources
 
-- [GitHub Pages 文档](https://docs.github.com/en/pages)
-- [Hugo 部署指南](https://gohugo.io/hosting-and-deployment/)
+- [GitHub Pages docs](https://docs.github.com/en/pages)
+- [Hugo hosting & deployment](https://gohugo.io/hosting-and-deployment/)
 
 

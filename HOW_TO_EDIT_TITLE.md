@@ -1,97 +1,97 @@
-# 📝 如何修改文章标题
+# 📝 How to change a post title
 
-## 方法 1: 直接编辑文件（最简单）
+## Method 1: Edit the file directly (easiest)
 
-### 步骤：
+### Steps
 
-1. **打开文章文件**
-   - 在 Cursor 左侧文件浏览器中找到文章
-   - 例如：`content/posts/11-28-2025.md`
-   - 点击打开
+1. **Open the post file**
+   - Find the post in Cursor's file explorer
+   - Example: `content/posts/11-28-2025.md`
+   - Click to open
 
-2. **修改标题**
-   - 找到文件开头的 front matter（YAML 配置）
-   - 修改 `title` 字段：
+2. **Edit the title**
+   - Find the front matter at the top (YAML)
+   - Update the `title` field:
 
    ```markdown
    ---
-   title: "新标题"    ← 修改这里
+   title: "New title"    ← change this
    date: 2025-11-28T...
    draft: false
    ...
    ---
    ```
 
-3. **保存文件**
-   - 按 `Cmd + S` (Mac) 或 `Ctrl + S` (Windows/Linux)
+3. **Save the file**
+   - Press `Cmd + S` (Mac) or `Ctrl + S` (Windows/Linux)
 
-4. **提交并推送**
+4. **Commit and push**
    ```bash
-   git add content/posts/文件名.md
-   git commit -m "Update post title: 新标题"
+   git add content/posts/filename.md
+   git commit -m "Update post title: New title"
    git push
    ```
 
-   **或使用快速发布脚本：**
+   **Or use the quick publish script:**
    ```bash
    ./quick-publish.sh
    ```
 
 ---
 
-## 方法 2: 使用终端命令（批量修改）
+## Method 2: Use terminal commands (batch)
 
-### 使用 sed 命令修改：
+### Use `sed`
 
 ```bash
-# 修改单个文件
-sed -i '' 's/title: "旧标题"/title: "新标题"/' content/posts/文件名.md
+# Edit a single file
+sed -i '' 's/title: "Old title"/title: "New title"/' content/posts/filename.md
 
-# 示例：将 "Thanksgiving 2025" 改为 "Thanksgiving Day 2025"
+# Example: change "Thanksgiving 2025" to "Thanksgiving Day 2025"
 sed -i '' 's/title: "Thanksgiving 2025"/title: "Thanksgiving Day 2025"/' content/posts/11-27-2025.md
 ```
 
-### 使用 nano 编辑器：
+### Use `nano`
 
 ```bash
-nano content/posts/文件名.md
-# 修改标题后，按 Ctrl+X，然后 Y，然后 Enter 保存
+nano content/posts/filename.md
+# After editing: Ctrl+X, then Y, then Enter to save
 ```
 
-### 使用 vim 编辑器：
+### Use `vim`
 
 ```bash
-vim content/posts/文件名.md
-# 按 i 进入编辑模式
-# 修改标题
-# 按 Esc，然后输入 :wq 保存并退出
+vim content/posts/filename.md
+# Press i to enter insert mode
+# Edit the title
+# Press Esc, then type :wq to save and quit
 ```
 
 ---
 
-## 方法 3: 使用脚本（批量修改多个文件）
+## Method 3: Use a script (batch multiple files)
 
-### 创建修改标题脚本：
+### Create a title-update script
 
 ```bash
 #!/bin/bash
-# 修改文章标题脚本
+# Post title update script
 
-FILE="content/posts/文件名.md"
-OLD_TITLE="旧标题"
-NEW_TITLE="新标题"
+FILE="content/posts/filename.md"
+OLD_TITLE="Old title"
+NEW_TITLE="New title"
 
 sed -i '' "s/title: \"$OLD_TITLE\"/title: \"$NEW_TITLE\"/" "$FILE"
-echo "✅ 已修改: $FILE"
+echo "✅ Updated: $FILE"
 ```
 
 ---
 
-## 完整示例
+## Full example
 
-### 示例：修改 `11-28-2025.md` 的标题
+### Example: change the title in `11-28-2025.md`
 
-**当前内容：**
+**Current:**
 ```markdown
 ---
 title: "Current Title"
@@ -99,21 +99,21 @@ date: 2025-11-28T...
 ---
 ```
 
-**修改步骤：**
+**Steps:**
 
-1. 打开文件 `content/posts/11-28-2025.md`
+1. Open `content/posts/11-28-2025.md`
 
-2. 修改为：
+2. Change to:
    ```markdown
    ---
-   title: "New Title"    ← 改成新标题
+   title: "New Title"    ← update the title
    date: 2025-11-28T...
    ---
    ```
 
-3. 保存文件
+3. Save the file
 
-4. 提交更改：
+4. Commit the change:
    ```bash
    git add content/posts/11-28-2025.md
    git commit -m "Update title: New Title"
@@ -122,76 +122,76 @@ date: 2025-11-28T...
 
 ---
 
-## 重要提示
+## Important notes
 
-### ⚠️ 注意事项：
+### ⚠️ Things to watch for
 
-1. **只修改 front matter 中的 title**
-   - 不要修改文章内容中的标题（如果有的话）
-   - 模板会自动使用 front matter 中的 title
+1. **Only change the `title` in the front matter**
+   - Don't change any title inside the body (if present)
+   - The theme uses the front matter `title`
 
-2. **URL 不会自动改变**
-   - 修改标题不会改变文章的 URL
-   - URL 基于文件名，不是标题
-   - 如果需要改变 URL，需要重命名文件
+2. **The URL will not change automatically**
+   - Changing `title` does not change the URL
+   - The URL is based on the filename, not the title
+   - To change the URL, rename the file
 
-3. **提交信息要清晰**
-   - 使用有意义的提交信息
-   - 例如：`git commit -m "Update title: 新标题"`
+3. **Use clear commit messages**
+   - Use a meaningful message
+   - Example: `git commit -m "Update title: New title"`
 
 ---
 
-## 如果需要同时修改文件名和标题
+## If you need to change both filename and title
 
-### 步骤：
+### Steps
 
-1. **重命名文件**
+1. **Rename the file**
    ```bash
-   git mv content/posts/旧文件名.md content/posts/新文件名.md
+   git mv content/posts/old-filename.md content/posts/new-filename.md
    ```
 
-2. **修改标题**
-   - 编辑文件，修改 front matter 中的 title
+2. **Update the title**
+   - Edit the file and update the front matter `title`
 
-3. **提交**
+3. **Commit**
    ```bash
-   git add content/posts/新文件名.md
+   git add content/posts/new-filename.md
    git commit -m "Rename post and update title"
    git push
    ```
 
 ---
 
-## 快速参考
+## Quick reference
 
-### 最简单的流程：
+### Easiest flow
 
 ```bash
-# 1. 在 Cursor 中编辑文件，修改 title
+# 1. Edit the file in Cursor and change title
 
-# 2. 提交并推送
-git add content/posts/文件名.md
+# 2. Commit and push
+git add content/posts/filename.md
 git commit -m "Update title"
 git push
 ```
 
-### 或使用快速发布脚本：
+### Or use the quick publish script
 
 ```bash
-# 编辑文件后
+# After editing
 ./quick-publish.sh
 ```
 
 ---
 
-## 总结
+## Summary
 
-**推荐方法：**
-1. 在 Cursor 中直接编辑文件
-2. 修改 front matter 中的 `title`
-3. 保存文件
-4. 使用 `./quick-publish.sh` 或手动提交推送
+**Recommended:**
+1. Edit the file in Cursor
+2. Update the front matter `title`
+3. Save
+4. Use `./quick-publish.sh` or commit/push manually
 
-就这么简单！🎉
+That's it! 🎉
 
 

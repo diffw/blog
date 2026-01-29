@@ -4,11 +4,10 @@ date: 2024-01-01
 draft: false
 ---
 
-A Christian, a designer, the husband of one woman, and the father of three children.
+A believer, a maker, working at the edges of form and meaning.
 
- I first encountered the internet in college in 2001 and became deeply immersed in web design and Flash animation, witnessing the most open era of the Chinese internet. In 2009, I shifted to app design and became one of the earliest mobile internet designers in China.
+I entered the digital world when it was still raw and unpolished, drawn not only to technology but to form, motion, and the space between ideas. Alongside code and interfaces, I have always been learning to see—through drawing, composition, and the slow discipline of making things by hand.
 
-From 2013 to 2019, as the 7th employee and the first designer, I participated fully in Liulishuo's journey—from its early startup days in a residential apartment to its IPO on the New York Stock Exchange (NYSE: LAIX).
+My work has often unfolded quietly, shaped in small rooms and long nights, following a path from fragile beginnings to unlikely scale. I’ve been part of journeys where ideas learned how to survive, mature, and speak to the world.
 
-Born in Changsha, Hunan, I lived in Hangzhou for seven years and Shanghai for nine years. After immigrating to the United States, I spent two years in Los Angeles and now reside in Dallas, Texas.
-
+Moving between places and cultures has sharpened my attention to light, texture, and rhythm—whether on a screen, a page, or a blank surface. These days, I work from a calmer corner of the world, continuing to explore the intersection of faith, design, and art.

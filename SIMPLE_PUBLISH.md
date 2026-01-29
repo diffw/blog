@@ -1,137 +1,137 @@
-# 🚀 简化发布流程
+# 🚀 Simplified Publishing
 
-## 方法 1: 使用一键发布脚本（最简单）
+## Method 1: Use the one-click scripts (easiest)
 
-### 完整流程（创建+发布）
+### Full flow (create + publish)
 
 ```bash
-./publish.sh "我的文章标题"
+./publish.sh "My post title"
 ```
 
-**就这么简单！** 脚本会自动：
-1. ✅ 创建文章
-2. ✅ 设置 draft: false
-3. ✅ 提示你编辑内容
-4. ✅ 提交到 Git
-5. ✅ 推送到 GitHub
+**That's it.** The script will automatically:
+1. ✅ create the post
+2. ✅ set `draft: false`
+3. ✅ prompt you to edit content
+4. ✅ commit to Git
+5. ✅ push to GitHub
 
-### 快速发布（只发布已编辑的文章）
+### Quick publish (publish an already-edited post)
 
 ```bash
-# 1. 先创建并编辑文章
+# 1. Create and edit the post
 hugo new posts/my-article.md
-# 在 Cursor 中编辑文件，设置 draft: false
+# Edit in Cursor and set draft: false
 
-# 2. 一键发布
+# 2. One-click publish
 ./quick-publish.sh
 ```
 
 ---
 
-## 方法 2: 最简手动流程（3步）
+## Method 2: Minimal manual flow (3 steps)
 
-### 步骤 1: 创建文章
+### Step 1: Create the post
 ```bash
-hugo new posts/文章名.md
+hugo new posts/my-post.md
 ```
 
-### 步骤 2: 编辑文章
-在 Cursor 中打开文件，编辑内容，**设置 `draft: false`**
+### Step 2: Edit the post
+Open the file in Cursor, write content, and **set `draft: false`**.
 
-### 步骤 3: 发布
+### Step 3: Publish
 ```bash
-git add content/posts/文章名.md && git commit -m "Add post" && git push
+git add content/posts/my-post.md && git commit -m "Add post" && git push
 ```
 
-**完成！** 就这么简单。
+**Done.**
 
 ---
 
-## 方法 3: 使用 Git 别名（最快）
+## Method 3: Use a Git alias (fastest)
 
-### 设置别名（只需设置一次）
+### Set up the alias (one-time)
 
 ```bash
 git config --global alias.publish '!f() { git add "$1" && git commit -m "Publish: $(basename "$1" .md)" && git push; }; f'
 ```
 
-### 使用别名发布
+### Publish using the alias
 
 ```bash
-# 创建并编辑文章后
-git publish content/posts/文章名.md
+# After creating and editing the post
+git publish content/posts/my-post.md
 ```
 
 ---
 
-## 对比：原流程 vs 简化流程
+## Comparison: original vs simplified
 
-### 原流程（6步）
+### Original flow (6 steps)
 1. `cd /Users/luke/Cursor/NWA-Blog`
-2. `hugo new posts/文章名.md`
-3. 编辑文件
-4. `git add content/posts/文章名.md`
+2. `hugo new posts/my-post.md`
+3. Edit the file
+4. `git add content/posts/my-post.md`
 5. `git commit -m "Add post"`
 6. `git push`
 
-### 简化流程（1步）
+### Simplified flow (1 step)
 ```bash
-./publish.sh "文章标题"
+./publish.sh "Post title"
 ```
 
-或（3步）
+Or (3 steps)
 ```bash
-hugo new posts/文章名.md
-# 编辑文件
-git add content/posts/文章名.md && git commit -m "Add post" && git push
+hugo new posts/my-post.md
+# Edit the file
+git add content/posts/my-post.md && git commit -m "Add post" && git push
 ```
 
 ---
 
-## 推荐工作流程
+## Recommended workflow
 
-### 日常写作流程
+### Daily writing workflow
 
-1. **创建文章**
+1. **Create the post**
    ```bash
    hugo new posts/today-article.md
    ```
 
-2. **编辑内容**
-   - 在 Cursor 中打开文件
-   - 写内容
-   - 设置 `draft: false`
+2. **Edit content**
+   - Open the file in Cursor
+   - Write the content
+   - Set `draft: false`
 
-3. **一键发布**
+3. **One-click publish**
    ```bash
    ./quick-publish.sh
    ```
 
-**总时间：约 2 分钟** ⚡
+**Total time: ~2 minutes** ⚡
 
 ---
 
-## 提示
+## Tips
 
-- 本地预览（可选）：`hugo server -D`
-- 查看状态：`git status`
-- 撤销更改：`git restore content/posts/文章名.md`
+- Local preview (optional): `hugo server -D`
+- Check status: `git status`
+- Undo changes: `git restore content/posts/my-post.md`
 
 ---
 
-## 总结
+## Summary
 
-**最简单的方法：**
+**Easiest:**
 ```bash
-./publish.sh "文章标题"
+./publish.sh "Post title"
 ```
 
-**最快的方法：**
+**Fastest:**
 ```bash
-hugo new posts/name.md && # 编辑文件
+hugo new posts/name.md && # edit the file
 ./quick-publish.sh
 ```
 
-就这么简单！🎉
+That's it! 🎉
 
 
